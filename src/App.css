@@ -36,7 +36,7 @@ body {
   min-height: 100vh;
   display: flex;
   place-items: center;
-  background-color: var(--hint, white);
+  background-color: var(--body, white);
   font-family: Arial, sans-serif;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
@@ -172,7 +172,7 @@ code {
 
 /* Game Display */
 .game-container {
-  background-color: yellow;
+  background-color: var(--body);
   display: grid;
   width: 54dvw;
   height: 46dvw;
@@ -183,7 +183,7 @@ code {
   padding: 5px;
 }
 .grid-empty {
-  background-color: var(--dialogButton, white);
+  background-color: var(--body, white);
   width: 9dvw;
 }
 .message-box {
@@ -191,7 +191,7 @@ code {
   align-items: end;
   text-align: center;
   white-space: nowrap;
-  background-color: var(--hex, white);
+  background-color: var(--body, white);
   color: var(--fontDark);
   font-family: Arial; font-size: 2dvw;
   line-height: 1.1;
@@ -203,7 +203,7 @@ code {
   width: 9.5dvw; 
   height: 100%;
   margin-top: 6px;
-  background-color: var(--otherFill, white);
+  background-color: var(--body, white);
 }
 .puzzle-box {
   background: radial-gradient(circle at center, var(--puzzleInner), var(--puzzleOutter));
@@ -239,7 +239,7 @@ code {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: var(--fontGreen, white);
+  background-color: var(--body, white);
   height: 90%;
   align-self: center;
 }
