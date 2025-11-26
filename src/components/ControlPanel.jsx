@@ -1,20 +1,5 @@
-import {formatTime} from '../utils/formatTime.jsx'
 import {setColors} from '../utils/setColors.jsx'
 import {useState} from 'react';
-
-///* Time Display *///
-function TimeDisplay (props){
-  const {game} = props;
-  return (
-    <>
-      <div className='display-container'>
-        <button className='display'>
-          {formatTime(game.time)}
-        </button>
-      </div>
-    </>
-  );
-};
 
 ///* Labels *///
 const DifficultyLabel = ({level}) => {
@@ -76,7 +61,6 @@ function ControlPanel (props){
   };
   return (
     <>
-      <TimeDisplay game={game}/>
       <ControlButton id={'difficulty'} game={game} data={data} disable={false} 
         onControlClick={handleControlClick}
         buttonLabel={<DifficultyLabel level={game.level} />} />

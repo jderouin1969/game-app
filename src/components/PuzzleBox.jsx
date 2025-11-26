@@ -1,4 +1,5 @@
 import {setColors} from '../utils/setColors.jsx'
+import {formatTime} from '../utils/formatTime.jsx'
 
 function CircleText (props) {
   const {id, puzzle, game, data, onCircleClick} = props;
@@ -61,7 +62,14 @@ const PuzzleBox = (props) => {
     onCircleClick(pos);
   };
   return (
-    <svg viewBox="0 0 600 600" style={{width: '100%', height: 'auto' }}>
+    <svg viewBox="0 0 600 600" style={{width: '100%', height: '100%' }}>
+      <g id='time-display'>
+        <rect className='svg-shadow' x='-50' y='20' 
+          width='105' height='45' fill={`${data.color.offWhite}`}  rx="15" ry="15" 
+        />
+        <text x='14' y='45' font-family="Arial" font-size="32" fill={`${data.color.fontDark}`}
+          text-anchor="middle" dominant-baseline="middle">{formatTime(game.time)}</text>
+      </g>
       {data.hexagon.map((num) => (
         <polygon 
           key={`h${num.id}`} 

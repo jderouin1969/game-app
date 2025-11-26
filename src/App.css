@@ -33,14 +33,19 @@
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   display: flex;
+  overflow: hidden;
   place-items: center;
   background-color: var(--body, white);
   font-family: Arial, sans-serif;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+html {
+  background-color: white;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -51,11 +56,11 @@ code {
 .dialog-container {
   display: flex;
   justify-content: center;
-  min-height: 100dvh; 
+  width: 100dvw;
+  height: 100dvh; 
   position: fixed;    
   top: 0;
   left: 0;
-  width: 100%;
   background-color: var(--dialogBlur);
   z-index: 5;   
 }
@@ -84,6 +89,7 @@ code {
 .dialog-small {
   z-index: 5;
   position: fixed;
+  width: calc(var(--gameSize) * .6);
   background: var(--offWhite);
   border-radius: 15px;
   border: none;
@@ -92,9 +98,9 @@ code {
   text-wrap: wrap;
   text-align: center;
   line-height: 1;
-  margin-top: 8%;
+  margin-top: calc(var(--gameSize) * .1);
   padding: 10px 0px 0px 0px;
-  width: 28dvw;
+
 }
 
 /* Direction Dialog */
@@ -104,9 +110,9 @@ code {
   background: var(--offWhite);
   border-radius: 15px;
   border: none;
-  margin-top: 2%;
-  width: 60dvw;
-  height: 42dvw;
+  margin-top: calc(var(--gameSize) * .025);
+  width: var(--gameSize);
+  height: calc(var(--gameSize) * .9);
   padding: .1dvw .1dvw .1dvw;
   display: grid;
   color: var(--fontDark);
@@ -172,22 +178,17 @@ code {
 
 /* Game Display */
 .game-container {
+  position: relative;
   background-color: var(--body);
   display: grid;
-  width: 54dvw;
-  height: 46dvw;
-  grid-template-rows: 1.6fr 15fr 3fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: center;
-  grid-gap: 3px;
-  padding: 5px;
-}
-.grid-empty {
-  background-color: var(--body, white);
-  width: 9dvw;
+  place-items: center;
+  width: var(--gameSize);
+  height: var(--gameSize);
+  grid-template-columns: var(--gameSize);
+  grid-template-rows: calc(var(--gameSize) * .05) calc(var(--gameSize) * .075) 
+    calc(var(--gameSize) * .8) calc(var(--gameSize) * .075);
 }
 .message-box {
-  display: grid;
   align-items: end;
   text-align: center;
   white-space: nowrap;
@@ -198,17 +199,20 @@ code {
 }
 .control-panel {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center; 
-  width: 9.5dvw; 
-  height: 100%;
-  margin-top: 6px;
-  background-color: var(--body, white);
+  width: 95%; 
+  height: 2.5dvw;
+  margin-bottom: .4dvw;
+  background-color: transparent;
+  gap: 15px;
 }
+
 .puzzle-box {
   background: radial-gradient(circle at center, var(--puzzleInner), var(--puzzleOutter));
   border-radius: 15px;
-  aspect-ratio: 1 / .9;
+  width: 97.5%;
+  height: 100%;
   text-align: center;
   box-shadow: .08dvw .22dvw .2dvw .1dvw var(--boxShadow),
     inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.65),
@@ -216,6 +220,8 @@ code {
     inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.55);
 }
 .puzzle-box-animation {
+  width: 100%;
+  height: 100%;
   background: radial-gradient(circle at center, 
     var(--puzzleInner) 0%,
     var(--puzzleOutter) var(--stop),
@@ -226,59 +232,34 @@ code {
     var(--puzzleMiddle) calc(var(--stop) + (5 * var(--stopChange))),
     var(--puzzleOutter));
   border-radius: 15px;
-  aspect-ratio: 1 / .9;
   text-align: center;
   box-shadow: .08dvw .22dvw .2dvw .1dvw var(--boxShadow),
     inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.65),
     inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.55),
     inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.55);
 }
+.svg-shadow {
+  filter: drop-shadow(2px 4px 2px rgba(0, 0, 0, 0.5));
+}
+
 .number-panel {
   display: flex;
   flex-direction: row;
+  width: 90%;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: var(--body, white);
-  height: 90%;
-  align-self: center;
+  justify-content: space-evenly;
+  background-color: transparent;
+  height: 10dvw;
+  margin-top: .4dvw;
 }
 
 /* Controls */ 
-.display-container {
-  position: relative;
-  align-items: center;
-  font-size: 1.8dvw;
-  width: 8.5dvw;
-  height: 2.5dvw;
-  margin-bottom: 10px;
-}
-.display {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background:linear-gradient(176deg, var(--offWhite), var(--displayColor));
-  border-radius: 999px;
-  border: none;
-  color: var(--fontDark);
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-  text-align: center;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: .08dvw .22dvw .2dvw .1dvw var(--boxShadow),
-    inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.65),
-    inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.55),
-    inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.55);
-}
 .control-container {
   position: relative;
   align-items: center;
   font-size: 1.4dvw;
   width: 8.5dvw;
-  height: 2.5dvw;
-  margin-bottom: 12px;
+  height: 2.5dvw; 
 }
 .control-base {
   z-index: 1;

@@ -254,12 +254,12 @@ function CircleText (props) {
   }
   return (
     <>
-      <circle key={`c${id}`} cx={data.position.centerX + (cx * data.position.stepX)} 
-        cy={data.position.centerY + (cy * data.position.stepY)} r={data.position.circleRadius} 
+      <circle key={`c${id}`} cx={data.position.centerX + (cx * data.position.smallStepX)} 
+        cy={data.position.centerY + (cy * data.position.smallStepY)} r={data.position.circleRadius} 
         fill={fillColor} stroke={strokeColor} strokeWidth="3" 
         />
-      <text key={`t${id}`} x={data.position.centerX + (cx * data.position.stepX)} 
-        y={data.position.centerY + (cy * data.position.stepY) + 4} textAnchor="middle" 
+      <text key={`t${id}`} x={data.position.centerX + (cx * data.position.smallStepX)} 
+        y={data.position.centerY + (cy * data.position.smallStepY) + 4} textAnchor="middle" 
         alignmentBaseline="middle" style={{ pointerEvents: 'none' }} fill={fontColor}
         fontFamily="Helvetica" fontSize="1.5em" fontWeight="500">
         {values[id]}
@@ -274,7 +274,7 @@ const DirectionsPuzzleBox = (props) => {
   setColors(game, data);
   return (
     <svg viewBox="0 0 600 600" style={{width: '100%', height: '100%' }}>
-      {data.hexagon.map((num) => (
+      {data.hexagonSmall.map((num) => (
         <polygon 
           key={`h${num.id}`} 
           points={`${num.x1} ${num.y1}, ${num.x2} ${num.y2},

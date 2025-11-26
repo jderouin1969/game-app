@@ -1,6 +1,6 @@
 import {data} from './data.jsx'
 import {handleDifficulty, handleNew, handlePause, handleCheck, handleHint,
-  handleDirections, startNewGame} from './utils/controlHandles.jsx'
+  handleDirections, startNewGame} from './utils/controlHandles.jsx';
 import {usePuzzle, useGame} from './components/hooks.jsx';
 import {NewDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/modals.jsx';
 import MessageBox from './components/MessageBox.jsx';
@@ -16,6 +16,16 @@ function HexaduGame(){
   const puzzle = usePuzzle();
   const newValues = Array(37).fill('');
   const finalValues = Array(37).fill('');
+
+  (function() {
+    const gameSize = Math.min(window.innerWidth, window.innerHeight) * .975;
+    document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
+  })();
+  function setDynamicSize() {
+    const gameSize = Math.min(window.innerWidth, window.innerHeight) * .975;
+    document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
+  }
+  window.addEventListener('resize', setDynamicSize);
 
   if (localStorage.getItem('easyCount') == null){
     localStorage.setItem('easyCount', '0');
@@ -171,32 +181,30 @@ function HexaduGame(){
   /** Game Clicks **/ 
   return (
     <>
+      <NewDialog 
+        isOpen={game.newIsOpen} onYes={handleNewYes} onNo={handleNewNo}
+      />
+      <DifficultyDialog 
+        isOpen={game.difficultyIsOpen} onYes={handleDifficultyYes} onNo={handleDifficultyNo}
+      />
+      <DirectionsDialog
+        puzzle={puzzle}
+        game={game}
+        data={data}
+        isOpen={game.directionsIsOpen} 
+        onClose={handleDirectionsClose}
+      />
+      <FinishedDialog
+        puzzle={puzzle}
+        game={game}
+        isOpen={game.finishedIsOpen} 
+        onReset={handleFinishedReset} 
+        onClose={handleFinishedClose}
+      />
       <div className="game-container">
-        <NewDialog 
-          isOpen={game.newIsOpen} onYes={handleNewYes} onNo={handleNewNo}
-        />
-        <DifficultyDialog 
-          isOpen={game.difficultyIsOpen} onYes={handleDifficultyYes} onNo={handleDifficultyNo}
-        />
-        <DirectionsDialog
-          puzzle={puzzle}
-          game={game}
-          data={data}
-          isOpen={game.directionsIsOpen} 
-          onClose={handleDirectionsClose}
-        />
-        <FinishedDialog
-          puzzle={puzzle}
-          game={game}
-          isOpen={game.finishedIsOpen} 
-          onReset={handleFinishedReset} 
-          onClose={handleFinishedClose}
-        />
-        <div className="grid-empty"></div>
         <div className="message-box">
           <MessageBox newMessage={game.message}/>
         </div>
-        <div className="grid-empty"></div>
         <div className="control-panel">
           <ControlPanel
             game={game}
@@ -212,8 +220,6 @@ function HexaduGame(){
             onCircleClick={handleCircleClick}
           />
         </div>
-        <div className="grid-empty"></div>
-        <div className="grid-empty"></div>
         <div className="number-panel">
           <NumberPanel
             game={game}
@@ -221,7 +227,6 @@ function HexaduGame(){
             onNumberClick={handleNumberClick}
           />
         </div>
-        <div className="grid-empty"></div>
       </div>
     </>
   );
