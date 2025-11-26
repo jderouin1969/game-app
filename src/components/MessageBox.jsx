@@ -1,4 +1,5 @@
 function MessageBox (props){
+
   return (
     <>
       {props.newMessage}

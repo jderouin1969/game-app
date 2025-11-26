@@ -19,10 +19,12 @@ function HexaduGame(){
 
   (function() {
     const gameSize = Math.min(window.innerWidth, window.innerHeight) * .975;
+    console.log(window.innerWidth, window.innerHeight);
     document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
   })();
   function setDynamicSize() {
     const gameSize = Math.min(window.innerWidth, window.innerHeight) * .975;
+    console.log(window.innerWidth, window.innerHeight);
     document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
   }
   window.addEventListener('resize', setDynamicSize);

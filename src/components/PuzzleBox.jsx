@@ -67,8 +67,8 @@ const PuzzleBox = (props) => {
         <rect className='svg-shadow' x='-50' y='20' 
           width='105' height='45' fill={`${data.color.offWhite}`}  rx="15" ry="15" 
         />
-        <text x='14' y='45' font-family="Arial" font-size="32" fill={`${data.color.fontDark}`}
-          text-anchor="middle" dominant-baseline="middle">{formatTime(game.time)}</text>
+        <text x='14' y='45' fontFamily="Arial" fontSize="32" fill={`${data.color.fontDark}`}
+          textAnchor="middle" dominantBaseline="middle">{formatTime(game.time)}</text>
       </g>
       {data.hexagon.map((num) => (
         <polygon 
