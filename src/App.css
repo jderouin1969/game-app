@@ -128,8 +128,8 @@ code {
   background-color: var(--offWhite);
   color: var(--fontDark);
   border-radius: 15px;
-  font-family: Arial; font-size: var(--text-small);
-  line-height: 1em;
+  font-family: Arial; font-size: var(--text-base);
+  line-height: .9rem;
   display: flex;
   flex-direction: column;
   align-self: center;
