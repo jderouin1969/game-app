@@ -97,7 +97,7 @@ export const data = {
       x3: center, y3: center - (2 * smallR), 
       x4: center - (Math.sqrt(3) * smallR), y4: center - smallR, 
       x5: center - (Math.sqrt(3) * 2 * smallR), y5: center - (2 * smallR), 
-      x6: center - (Math.sqrt(3) * 2 * smallR), y6: center - (4 * hexR)},
+      x6: center - (Math.sqrt(3) * 2 * smallR), y6: center - (4 * smallR)},
     {id: 1, x1: center + (Math.sqrt(3) * smallR), y1: center - (5 * smallR), 
       x2: center + (Math.sqrt(3) * 2 * smallR), y2: center - (4 * smallR), 
       x3: center + (Math.sqrt(3) * 2 * smallR), y3: center - (2 * smallR),

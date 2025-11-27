@@ -30,8 +30,8 @@
   --stop: 0%;
   --stopChange: 7.5%;
   --text-base: 1rem;
-  --text-lg: 1.3rem;
-  --text-xl: 2rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.8rem;
 }
 body {
   margin: 0;
@@ -101,8 +101,6 @@ code {
   text-align: center;
   line-height: 1;
   margin-top: calc(var(--gameSize) * .35);
-  padding: 10px 0px 0px 0px;
-
 }
 
 /* Direction Dialog */
@@ -129,8 +127,8 @@ code {
   background-color: var(--offWhite);
   color: var(--fontDark);
   border-radius: 15px;
-  font-family: Arial; font-size: 1.5dvw;
-  line-height: 1.75dvw;
+  font-family: Arial; font-size: var(--text-base);
+  line-height: 1em;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -157,13 +155,14 @@ code {
   gap: 10px;
   align-self: center;
   justify-self: center;
-  font-family: Arial; font-size: 1.5dvw;
+  font-family: Arial; font-size: var(--text-lg);
   grid-column: 1 / 3;
   grid-row: 2;
 }
 .example-button {
-  width: 7.5dvw;
-  height: 2.3dvw;
+  font-size: var(--text-lg);
+  width: calc(var(--gameSize) / 6);
+  height: calc(var(--gameSize) / 20); 
   border-radius: 999px;
   border: none;
   outline: none;
