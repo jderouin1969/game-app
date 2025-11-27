@@ -39,7 +39,7 @@ function HexaduGame(){
       document.documentElement.style.setProperty('--text-xl', '1.7rem');
     } else {
       document.documentElement.style.setProperty('--text-directions', '.65rem');
-      document.documentElement.style.setProperty('--text-base', '.9rem');
+      document.documentElement.style.setProperty('--text-base', '.8rem');
       document.documentElement.style.setProperty('--text-lg', '1rem');
       document.documentElement.style.setProperty('--text-xl', '1.6rem');
     }

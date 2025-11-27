@@ -147,7 +147,7 @@ export function DirectionsDialog(props) {
               onMouseOut={() => handleMouseOut()}>
               The same number can't be placed next to itself.</li>
           </ul>
-          <p style={{color: data.color.fontGreen, fontSize: '.9rem', 
+          <p style={{color: data.color.fontBlue, fontSize: '.9rem', 
             marginTop: '0', paddingTop: '0', textAlign: 'center'}}>
             Click on a rule to see example.
           </p>
