@@ -30,8 +30,8 @@
   --stop: 0%;
   --stopChange: 7.5%;
   --text-base: 1rem;
-  --text-lg: 1.2rem;
-  --text-xl: 1.8rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.7rem;
 }
 body {
   margin: 0;
@@ -273,7 +273,7 @@ code {
   position: relative;
   align-items: center;
   font-size: var(--text-lg);
-  width: calc(var(--gameSize) / 5);
+  width: calc(var(--gameSize) / 4.5);
   height: calc(var(--gameSize) / 20);
 }
 .control-base {
