@@ -149,7 +149,7 @@ code {
   grid-row: 2;
 }
 .directions-p{
-  color: var(--fontDark);
+  color: var(--fontGreen);
   font-size: var(--text-base);          
   margin-top: 0; 
   margin-bottom: 0;
