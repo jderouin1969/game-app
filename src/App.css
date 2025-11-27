@@ -60,11 +60,8 @@ code {
 .dialog-container {
   display: flex;
   justify-content: center;
-  width: var(--gameSize);
-  height: var(--gameSize); 
-  position: fixed;    
-  top: 0;
-  left: 0;
+  width: 100%;
+  height: 100%; 
   background-color: var(--dialogBlur);
   z-index: 5;   
 }
@@ -97,12 +94,12 @@ code {
   background: var(--offWhite);
   border-radius: 15px;
   border: none;
-  font-size: 1.5dvw;
+  font-size: var(--text-base);
   color: var(--fontDark);
   text-wrap: wrap;
   text-align: center;
   line-height: 1;
-  margin-top: calc(var(--gameSize) * .1);
+  margin-top: calc(var(--gameSize) * .3);
   padding: 10px 0px 0px 0px;
 
 }
