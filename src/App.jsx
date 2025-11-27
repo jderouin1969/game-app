@@ -53,6 +53,7 @@ function HexaduGame(){
   };
   const handleNewNo = () => {
     game.startTimer();
+    game.updateStatus('running');
     game.setNewDialog(false);
   };
 
@@ -64,6 +65,7 @@ function HexaduGame(){
   };
   const handleDifficultyNo = () => {
     game.startTimer();
+    game.updateStatus('running');
     game.setDifficultyDialog(false);
   };
 
@@ -88,6 +90,9 @@ function HexaduGame(){
   };
 
   const handleDirectionsClose = () => {
+    if (game.status == 'set' || game.status == 'running'){
+      game.startTimer();
+    }
     game.setDirectionsDialog(false);
   };
 

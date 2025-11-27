@@ -10,11 +10,11 @@
   --hex:#0a61c9;
   --dialogButton:#315cf4;
   --dialogHover:#1434a4;
-  --dialogBlur: rgba(0, 0, 0, 0.4);
+  --dialogBlur: rgba(0, 0, 0, 0.6);
   --displayColor:#999999;
   --displayBorder:#374458;
   --message:#fcf7f8;
-  --boxShadow:rgba(0, 0, 0, 0.7);
+  --boxShadow:rgba(0, 0, 0, 0.5);
   --axisFill:#b8b8bf;
   --otherFill:#d7d7db;
   --centerBorder:#0f1042;
@@ -62,16 +62,19 @@ code {
   justify-content: center;
   width: 100%;
   height: 100%; 
+  position: fixed;    
+  top: 0;
+  left: 0;
   background-color: var(--dialogBlur);
   z-index: 5;   
 }
 .dialog-button{
-  width: 6dvw;
-  height: 2.25dvw;
+  width: calc(var(--gameSize) / 7);
+  height: calc(var(--gameSize) / 20);
 	border-radius: 100px;
   border: 0;
   background: var(--dialogButton);
-	font-size: 1.4dvw;
+	font-size: var(--text-lg);
   padding: .2dvw;
 	text-align: center;
   color: var(--offWhite);
@@ -94,12 +97,12 @@ code {
   background: var(--offWhite);
   border-radius: 15px;
   border: none;
-  font-size: var(--text-base);
+  font-size: var(--text-lg);
   color: var(--fontDark);
   text-wrap: wrap;
   text-align: center;
   line-height: 1;
-  margin-top: calc(var(--gameSize) * .3);
+  margin-top: calc(var(--gameSize) * .35);
   padding: 10px 0px 0px 0px;
 
 }

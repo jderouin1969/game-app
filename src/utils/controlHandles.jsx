@@ -2,6 +2,8 @@ import {makePuzzle} from './makePuzzle.jsx'
 
 export function handleDifficulty(puzzle, game){
   if (game.status == 'running' || game.status == 'paused' ){
+    game.stopTimer();
+    game.updateStatus('paused');
     game.setDifficultyDialog(true);
   } else {
     game.updateStatus('waiting');
@@ -17,6 +19,7 @@ export function handleNew(puzzle, game, data, newValues, finalValues){
   game.updateMessage('');
   if (game.status == 'running' || game.status == 'paused' ){
     game.stopTimer();
+    game.updateStatus('paused');
     game.setNewDialog(true);
   } else {
     startNewGame(puzzle, game, data, newValues, finalValues);
@@ -199,6 +202,7 @@ export function handlePause (game){
 };
 
 export function handleDirections(game){
+  game.stopTimer();
   game.setDirectionsDialog(true);
 };
 
