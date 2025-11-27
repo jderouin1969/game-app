@@ -29,6 +29,7 @@
   --offWhite: #fcf7f8;
   --stop: 0%;
   --stopChange: 7.5%;
+  --text-directions: 1rem;
   --text-base: 1rem;
   --text-lg: 1.1rem;
   --text-xl: 1.7rem;
@@ -127,8 +128,8 @@ code {
   background-color: var(--offWhite);
   color: var(--fontDark);
   border-radius: 15px;
-  font-family: Arial; font-size: var(--text-base);
-  line-height: 1rem;
+  font-family: Arial; font-size: var(--text-directions);
+  line-height: var(--tex-directions);
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -149,7 +150,7 @@ code {
 }
 .directions-game-list {
   background-color: var(--offWhite);
-  color: var(--fontDark);
+  color: var(--fontGreen);
   display: flex;
   flex-direction: column;
   gap: 10px;
