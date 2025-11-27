@@ -29,7 +29,6 @@
   --offWhite: #fcf7f8;
   --stop: 0%;
   --stopChange: 7.5%;
-  --text-small: .9rem;
   --text-base: 1rem;
   --text-lg: 1.1rem;
   --text-xl: 1.7rem;
@@ -129,7 +128,7 @@ code {
   color: var(--fontDark);
   border-radius: 15px;
   font-family: Arial; font-size: var(--text-base);
-  line-height: .9rem;
+  line-height: 1rem;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -150,7 +149,7 @@ code {
 }
 .directions-game-list {
   background-color: var(--offWhite);
-  color: var(--fontGreen);
+  color: var(--fontDark);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -263,7 +262,14 @@ code {
 }
 
 /* Controls */ 
-.control-container {
+.control-container-small {
+  position: relative;
+  align-items: center;
+  font-size: var(--text-lg);
+  width: calc(var(--gameSize) / 7);
+  height: calc(var(--gameSize) / 20);
+}
+.control-container-medium {
   position: relative;
   align-items: center;
   font-size: var(--text-lg);
@@ -271,6 +277,13 @@ code {
   height: calc(var(--gameSize) / 20);
 }
 .control-container-large {
+  position: relative;
+  align-items: center;
+  font-size: var(--text-lg);
+  width: calc(var(--gameSize) / 5);
+  height: calc(var(--gameSize) / 20);
+}
+.control-container-xl {
   position: relative;
   align-items: center;
   font-size: var(--text-lg);
