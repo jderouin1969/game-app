@@ -141,7 +141,7 @@ export function DirectionsDialog(props) {
               onMouseOut={() => handleMouseOut()}
               >
               The three long diagonals must contain the numbers 1 through 7 without repeating a number along the same line.</li>
-            <li className='hexadu-li' style={{color: (rule == 'adjacent') ? 'pink' : data.color.fontDark}}
+            <li className='hexadu-li' style={{color: (rule == 'adjacent') ? 'blue' : data.color.fontDark}}
               onClick={() => handleAdjacent()}
               onMouseOver={() => handleAdjacent()}
               onMouseOut={() => handleMouseOut()}>
