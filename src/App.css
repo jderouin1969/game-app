@@ -148,6 +148,14 @@ code {
   grid-column: 1 / 3;
   grid-row: 2;
 }
+.directions-p{
+  color: var(--fontDark);
+  font-size: var(--text-base);          
+  margin-top: 0; 
+  margin-bottom: 0;
+  padding-top: 0;
+  text-align: center;
+}
 .directions-game-list {
   background-color: var(--offWhite);
   color: var(--fontDark);
