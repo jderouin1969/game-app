@@ -1,5 +1,6 @@
 import {setColors} from '../utils/setColors.jsx'
 import {formatTime} from '../utils/formatTime.jsx'
+import {useState} from 'react';
 
 function CircleText (props) {
   const {id, puzzle, game, data, onCircleClick} = props;
@@ -56,10 +57,23 @@ function CircleText (props) {
 };
 
 const PuzzleBox = (props) => {
-  const {puzzle, game, data, onCircleClick} = props;
+  const {puzzle, game, data, onCircleClick, onCheckClick} = props;
   setColors(game, data);
   const handleCircleClick = (pos) => {
     onCircleClick(pos);
+  };
+  const [transition, setTransition] = useState(false);
+  const handleCheckClick = () => {
+    if (game.status != 'waiting' && game.status != 'paused') { 
+      onCheckClick();
+      setTransition(!transition);
+      setTimeout(() => {
+      setTransition(false);
+      }, 225);
+    }
+  };
+  const endTransition = () => {
+    setTransition(false);
   };
   return (
     <svg viewBox="0 0 600 600" style={{width: '100%', height: '100%' }}>
@@ -69,6 +83,26 @@ const PuzzleBox = (props) => {
         />
         <text x='14' y='45' fontFamily="Arial" fontSize="32" fill={`${data.color.fontDark}`}
           textAnchor="middle" dominantBaseline="middle">{formatTime(game.time)}</text>
+      </g>
+      <g className={`checkButton ${transition ? 'transition' : ''}`}>
+        <rect className='checkBase'  
+          x='545' y='20' 
+          width='105' height='45' fill={`${data.color.offWhite}`}  
+          rx="15" ry="15"
+        />
+        <text className='checkText'
+          x='595' y='45' 
+          fontFamily="Arial" fontSize="26" fill={`${data.color.fontBlue}`}
+          textAnchor="middle" dominantBaseline="middle">
+          Check
+        </text>
+        <rect id='check-button' 
+          x='545' y='20' 
+          width='105' height='45' fill='transparent'  
+          rx="15" ry="15"
+          onClick={() => handleCheckClick()}
+          onTransitionEnd={endTransition}
+        />
       </g>
       {data.hexagon.map((num) => (
         <polygon 
@@ -87,6 +121,7 @@ const PuzzleBox = (props) => {
           puzzle={puzzle}
           data={data}
           onCircleClick={handleCircleClick}
+          onCheckClick={handleCheckClick}
         />
       ))}
     </svg>

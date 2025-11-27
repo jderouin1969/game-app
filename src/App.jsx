@@ -18,13 +18,11 @@ function HexaduGame(){
   const finalValues = Array(37).fill('');
 
   (function() {
-    const gameSize = Math.min(window.innerWidth, window.innerHeight) * .975;
-    console.log(window.innerWidth, window.innerHeight);
+    const gameSize = Math.min(window.innerWidth, window.innerHeight) * .99;
     document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
   })();
   function setDynamicSize() {
-    const gameSize = Math.min(window.innerWidth, window.innerHeight) * .975;
-    console.log(window.innerWidth, window.innerHeight);
+    const gameSize = Math.min(window.innerWidth, window.innerHeight) * .99;
     document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
   }
   window.addEventListener('resize', setDynamicSize);
@@ -117,6 +115,14 @@ function HexaduGame(){
         handleDirections(game);
         break;
     }
+  };
+  
+  const handleCheckClick = () => {
+    const checkButton = document.getElementById("check-button");
+    if (checkButton){
+      console.log("check button exists");
+    }
+    handleCheck(puzzle, game);
   };
   const handleCircleClick = (pos) => {
     game.updateMessage('');
@@ -220,6 +226,7 @@ function HexaduGame(){
             game={game}
             data={data}
             onCircleClick={handleCircleClick}
+            onCheckClick={handleCheckClick}
           />
         </div>
         <div className="number-panel">

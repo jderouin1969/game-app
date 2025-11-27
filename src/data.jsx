@@ -50,7 +50,7 @@ export const data = {
     message:'#fcf7f8', boxShadow:'#0f1042', axisFill:'#b8b8bf', otherFill:'#d7d7db', 
     centerBorder:'#0f1042', axisBorder:'#818181', otherBorder:'#b2b2b2', 
     cursor:'#657895', offWhite: '#fcf7f8', fontLight:'#717180', 
-    fontDark:'#0f1042',  hint:'#d99351'},
+    fontDark:'#0f1042', fontGreen:'#0a8a64', fontBlue:'#0000ff',  hint:'#d99351'},
   position: {centerX: center, centerY: center, hexRadius: hexR, circleRadius: hexR/2, 
     stepX: hexR * Math.sqrt(3)/2, stepY: hexR * 1.5, 
     smallStepX: smallR * Math.sqrt(3)/2, smallStepY: smallR * 1.5},

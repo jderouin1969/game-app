@@ -66,9 +66,6 @@ function ControlPanel (props){
         buttonLabel={<DifficultyLabel level={game.level} />} />
       <ControlButton id={'new'} game={game} data={data} disable={false} 
         onControlClick={handleControlClick} buttonLabel={'New'}/>
-      <ControlButton id={'check'} game={game} data={data}
-        disable={(game.status == 'waiting' || game.status == 'paused') ? true : false} 
-        onControlClick={handleControlClick} buttonLabel={'Check'}/>
       <ControlButton id={'hint'} game={game} data={data} disable={false} 
         onControlClick={handleControlClick} buttonLabel={'Hint'}/>
       <ControlButton id={'pause'} game={game} data={data} 

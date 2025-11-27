@@ -189,8 +189,8 @@ code {
   width: var(--gameSize);
   height: var(--gameSize);
   grid-template-columns: var(--gameSize);
-  grid-template-rows: calc(var(--gameSize) * .05) calc(var(--gameSize) * .075) 
-    calc(var(--gameSize) * .8) calc(var(--gameSize) * .075);
+  grid-template-rows: calc(var(--gameSize) * .04) calc(var(--gameSize) * .08) 
+    calc(var(--gameSize) * .8) calc(var(--gameSize) * .08);
 }
 .message-box {
   align-items: end;
@@ -198,7 +198,7 @@ code {
   white-space: nowrap;
   background-color: var(--body, white);
   color: var(--fontDark);
-  font-family: Arial; font-size: 2dvw;
+  font-family: Arial; font-size: var(--text-xl);
   line-height: 1.1;
 }
 .control-panel {
@@ -241,11 +241,24 @@ code {
 .svg-shadow {
   filter: drop-shadow(2px 4px 2px rgba(0, 0, 0, 0.5));
 }
+.checkButton {
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.6));
+}
+.checkButton:hover .checkText {
+    fill: var(--fontGreen);
+}
+.checkButton.transition {
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: transform 0.2s ease-in-out, filter 0.2 ease-in-out;
+  transform: scale(.95,.92);
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
 .number-panel {
   display: flex;
   flex-direction: row;
   width: 90%;
-  margin-top: calc(var(--gameSize) / 100);
   align-items: center;
   justify-content: space-evenly;
   background-color: transparent;
@@ -256,8 +269,8 @@ code {
   position: relative;
   align-items: center;
   font-size: var(--text-base);
-  width: calc(var(--gameSize) / 7);
-  height: calc(var(--gameSize) / 22);
+  width: calc(var(--gameSize) / 6);
+  height: calc(var(--gameSize) / 20);
 }
 .control-base {
   z-index: 1;
