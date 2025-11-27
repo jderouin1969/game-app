@@ -10,7 +10,7 @@
   --hex:#0a61c9;
   --dialogButton:#315cf4;
   --dialogHover:#1434a4;
-  --dialogBlur: rgba(0, 0, 0, 0.6);
+  --dialogBlur: rgba(0, 0, 0, 0.5);
   --displayColor:#999999;
   --displayBorder:#374458;
   --message:#fcf7f8;
@@ -29,10 +29,9 @@
   --offWhite: #fcf7f8;
   --stop: 0%;
   --stopChange: 7.5%;
-  --text-sm: 0.8rem;
   --text-base: 1rem;
-  --text-lg: 1.4rem;
-  --text-xl: 1.5rem;
+  --text-lg: 1.3rem;
+  --text-xl: 2rem;
 }
 body {
   margin: 0;
@@ -75,7 +74,6 @@ code {
   border: 0;
   background: var(--dialogButton);
 	font-size: var(--text-lg);
-  padding: .2dvw;
 	text-align: center;
   color: var(--offWhite);
 }
@@ -268,8 +266,15 @@ code {
 .control-container {
   position: relative;
   align-items: center;
-  font-size: var(--text-base);
+  font-size: var(--text-lg);
   width: calc(var(--gameSize) / 6);
+  height: calc(var(--gameSize) / 20);
+}
+.control-container-large {
+  position: relative;
+  align-items: center;
+  font-size: var(--text-lg);
+  width: calc(var(--gameSize) / 5);
   height: calc(var(--gameSize) / 20);
 }
 .control-base {
@@ -327,7 +332,7 @@ code {
 .number-container {
   position: relative;
   align-items: center;
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   width: calc(var(--gameSize) / 16);
   height: calc(var(--gameSize) / 16);
 }

@@ -52,6 +52,37 @@ function ControlButton (props){
   );
 };
 
+function ControlButtonLarge (props){
+  const {id, game, data, disable, onControlClick, buttonLabel} = props;
+  const [transition, setTransition] = useState(false);
+  const handleClick = () => {
+    onControlClick(id);
+    setTransition(!transition);
+    setTimeout(() => {
+      setTransition(false);
+    }, 225);
+  };
+  const endTransition = () => {
+    setTransition(false);
+  };
+  return (
+    <>
+      <div className='control-container-large'>
+        <button className='control-base'></button>
+        <button 
+          className={`control-top ${transition ? 'transition' : ''}`}
+          disabled={game.status == 'finished' ? true : disable}
+          data={data}
+          onClick={handleClick}
+          onTransitionEnd={endTransition}
+          >
+          {buttonLabel}
+        </button>  
+      </div>
+    </>
+  );
+};
+
 ///* Control Panel *///
 function ControlPanel (props){
   const {game, data} = props;
@@ -72,7 +103,7 @@ function ControlPanel (props){
         disable={game.status == 'waiting' ? true : false} 
         onControlClick={handleControlClick} 
         buttonLabel={<PauseLabel game={game} />} />
-      <ControlButton id={'directions'} game={game} data={data} disable={false} 
+      <ControlButtonLarge id={'directions'} game={game} data={data} disable={false} 
         onControlClick={handleControlClick} 
         buttonLabel={'Directions'}/>
     </>
