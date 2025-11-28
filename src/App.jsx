@@ -142,7 +142,7 @@ function HexaduGame(){
       case 'difficulty':
         handleDifficulty(puzzle, game);
         break;
-      case 'new':
+      case 'start':
         handleNew(puzzle, game, data, newValues, finalValues);
         break;
       case 'check':

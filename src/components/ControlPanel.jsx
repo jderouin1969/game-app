@@ -20,9 +20,9 @@ const PauseLabel = (props) => {
   );
 };
 
-///* Control Buttons *///
-function ControlButtonSmall (props){
-  const {id, game, data, disable, onControlClick, buttonLabel} = props;
+///* Control Button *///
+function ControlButton (props){
+  const {id, game, data, disable, size, onControlClick, buttonLabel} = props;
   const [transition, setTransition] = useState(false);
   const handleClick = () => {
     onControlClick(id);
@@ -34,102 +34,24 @@ function ControlButtonSmall (props){
   const endTransition = () => {
     setTransition(false);
   };
+  let className;
+  switch (size) {
+    case 'small':
+      className ='control control-small';
+      break;
+    case 'medium':
+      className ='control control-medium';
+      break;
+    case 'large':
+      className ='control control-large';
+      break;
+    case 'xl':
+      className ='control control-xl';
+      break;
+  }
   return (
     <>
-      <div className='control-container-small'>
-        <button className='control-base'></button>
-        <button 
-          className={`control-top ${transition ? 'transition' : ''}`}
-          disabled={game.status == 'finished' ? true : disable}
-          data={data}
-          onClick={handleClick}
-          onTransitionEnd={endTransition}
-          >
-          {buttonLabel}
-        </button>  
-      </div>
-    </>
-  );
-};
-
-function ControlButtonMedium (props){
-  const {id, game, data, disable, onControlClick, buttonLabel} = props;
-  const [transition, setTransition] = useState(false);
-  const handleClick = () => {
-    onControlClick(id);
-    setTransition(!transition);
-    setTimeout(() => {
-      setTransition(false);
-    }, 225);
-  };
-  const endTransition = () => {
-    setTransition(false);
-  };
-  return (
-    <>
-      <div className='control-container-medium'>
-        <button className='control-base'></button>
-        <button 
-          className={`control-top ${transition ? 'transition' : ''}`}
-          disabled={game.status == 'finished' ? true : disable}
-          data={data}
-          onClick={handleClick}
-          onTransitionEnd={endTransition}
-          >
-          {buttonLabel}
-        </button>  
-      </div>
-    </>
-  );
-};
-
-function ControlButtonLarge (props){
-  const {id, game, data, disable, onControlClick, buttonLabel} = props;
-  const [transition, setTransition] = useState(false);
-  const handleClick = () => {
-    onControlClick(id);
-    setTransition(!transition);
-    setTimeout(() => {
-      setTransition(false);
-    }, 225);
-  };
-  const endTransition = () => {
-    setTransition(false);
-  };
-  return (
-    <>
-      <div className='control-container-large'>
-        <button className='control-base'></button>
-        <button 
-          className={`control-top ${transition ? 'transition' : ''}`}
-          disabled={game.status == 'finished' ? true : disable}
-          data={data}
-          onClick={handleClick}
-          onTransitionEnd={endTransition}
-          >
-          {buttonLabel}
-        </button>  
-      </div>
-    </>
-  );
-};
-
-function ControlButtonXL (props){
-  const {id, game, data, disable, onControlClick, buttonLabel} = props;
-  const [transition, setTransition] = useState(false);
-  const handleClick = () => {
-    onControlClick(id);
-    setTransition(!transition);
-    setTimeout(() => {
-      setTransition(false);
-    }, 225);
-  };
-  const endTransition = () => {
-    setTransition(false);
-  };
-  return (
-    <>
-      <div className='control-container-xl'>
+      <div className={className}>
         <button className='control-base'></button>
         <button 
           className={`control-top ${transition ? 'transition' : ''}`}
@@ -154,18 +76,29 @@ function ControlPanel (props){
   };
   return (
     <>
-      <ControlButtonMedium id={'difficulty'} game={game} data={data} disable={false} 
+      <ControlButton id={'difficulty'} 
+        game={game} data={data} size={'medium'} 
+        disable={false} 
         onControlClick={handleControlClick}
         buttonLabel={<DifficultyLabel level={game.level} />} />
-      <ControlButtonSmall id={'new'} game={game} data={data} disable={false} 
-        onControlClick={handleControlClick} buttonLabel={'New'}/>
-      <ControlButtonSmall id={'hint'} game={game} data={data} disable={false} 
-        onControlClick={handleControlClick} buttonLabel={'Hint'}/>
-      <ControlButtonLarge id={'pause'} game={game} data={data} 
+      <ControlButton id={'start'} 
+        game={game} data={data} size={'small'} 
+        disable={false} 
+        onControlClick={handleControlClick} 
+        buttonLabel={'Start'}/>
+      <ControlButton id={'hint'} 
+        game={game} data={data} size={'small'} 
+        disable={false} 
+        onControlClick={handleControlClick} 
+        buttonLabel={'Hint'}/>
+      <ControlButton id={'pause'} 
+        game={game} data={data} size={'large'} 
         disable={game.status == 'waiting' ? true : false} 
         onControlClick={handleControlClick} 
         buttonLabel={<PauseLabel game={game} />} />
-      <ControlButtonXL id={'directions'} game={game} data={data} disable={false} 
+      <ControlButton id={'directions'} 
+        game={game} data={data} size={'xl'} 
+        disable={false} 
         onControlClick={handleControlClick} 
         buttonLabel={'Directions'}/>
     </>

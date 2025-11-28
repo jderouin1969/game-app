@@ -260,34 +260,24 @@ body {
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
-/* Controls */ 
-.control-container-small {
+/* Controls */
+.control {
   position: relative;
   align-items: center;
   font-size: var(--text-controls);
+  height: calc(var(--gameSize) / 20);
+}
+.control-small {
   width: calc(var(--gameSize) / 7);
-  height: calc(var(--gameSize) / 20);
 }
-.control-container-medium {
-  position: relative;
-  align-items: center;
-  font-size: var(--text-controls);
+.control-medium {
   width: calc(var(--gameSize) / 6);
-  height: calc(var(--gameSize) / 20);
 }
-.control-container-large {
-  position: relative;
-  align-items: center;
-  font-size: var(--text-controls);
+.control-large {
   width: calc(var(--gameSize) / 5.5);
-  height: calc(var(--gameSize) / 20);
 }
-.control-container-xl {
-  position: relative;
-  align-items: center;
-  font-size: var(--text-controls);
+.control-xl {
   width: calc(var(--gameSize) / 4.5);
-  height: calc(var(--gameSize) / 20);
 }
 .control-base {
   z-index: 1;
