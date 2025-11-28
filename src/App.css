@@ -260,15 +260,6 @@ body {
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
-.number-panel {
-  display: flex;
-  flex-direction: row;
-  width: 90%;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: transparent;
-}
-
 /* Controls */ 
 .control-container-small {
   position: relative;
@@ -350,10 +341,18 @@ body {
 }
 
 /* Numbers */
+.number-panel {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: transparent;
+}
 .number-container {
   position: relative;
   align-items: center;
-  font-size: var(--text-xl);
+  font-size: var(--text-numbers);
   width: calc(var(--gameSize) / 16);
   height: calc(var(--gameSize) / 16);
 }
