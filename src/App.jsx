@@ -24,11 +24,19 @@ function HexaduGame(){
       document.documentElement.style.setProperty('--text-base', '1.1rem');
       document.documentElement.style.setProperty('--text-lg', '1.2rem');
       document.documentElement.style.setProperty('--text-xl', '1.7rem');
+      document.documentElement.style.setProperty('--text-controls', '1.3rem');
+      document.documentElement.style.setProperty('--text-base', '1.1rem');
+      document.documentElement.style.setProperty('--text-lg', '1.2rem');
+      document.documentElement.style.setProperty('--text-xl', '1.7rem');
     } else {
       document.documentElement.style.setProperty('--text-directions', '.65rem');
       document.documentElement.style.setProperty('--text-base', '.65rem');
       document.documentElement.style.setProperty('--text-lg', '1rem');
       document.documentElement.style.setProperty('--text-xl', '1.6rem');
+      document.documentElement.style.setProperty('--text-controls', '1rem');
+      document.documentElement.style.setProperty('--text-base', '1.1rem');
+      document.documentElement.style.setProperty('--text-lg', '1.2rem');
+      document.documentElement.style.setProperty('--text-xl', '1.7rem');
     }
     document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
   })();
@@ -39,11 +47,19 @@ function HexaduGame(){
       document.documentElement.style.setProperty('--text-base', '1.1rem');
       document.documentElement.style.setProperty('--text-lg', '1.2rem');
       document.documentElement.style.setProperty('--text-xl', '1.7rem');
+      document.documentElement.style.setProperty('--text-controls', '1.3rem');
+      document.documentElement.style.setProperty('--text-base', '1.1rem');
+      document.documentElement.style.setProperty('--text-lg', '1.2rem');
+      document.documentElement.style.setProperty('--text-xl', '1.7rem');
     } else {
       document.documentElement.style.setProperty('--text-directions', '.65rem');
       document.documentElement.style.setProperty('--text-base', '.65rem');
       document.documentElement.style.setProperty('--text-lg', '1rem');
       document.documentElement.style.setProperty('--text-xl', '1.6rem');
+      document.documentElement.style.setProperty('--text-controls', '1rem');
+      document.documentElement.style.setProperty('--text-base', '1.1rem');
+      document.documentElement.style.setProperty('--text-lg', '1.2rem');
+      document.documentElement.style.setProperty('--text-xl', '1.7rem');
     }
     document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
   }

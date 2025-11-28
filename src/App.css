@@ -29,33 +29,32 @@
   --offWhite: #fcf7f8;
   --stop: 0%;
   --stopChange: 7.5%;
+  --text-controls: 1rem;
+  --text-dialog: 1rem;
+  --text-numbers: 1.1rem;
+  --text-buttons: 1.7rem;
   --text-directions: 1rem;
   --text-base: 1rem;
   --text-lg: 1.1rem;
   --text-xl: 1.7rem;
 }
+html {
+  height: 100%;
+  background-color: white;
+}
 body {
-  margin: 0;
-  padding: 0;
-  width: 100dvw;
-  height: 100dvh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
   overflow: hidden;
-  place-items: center;
   background-color: var(--body, white);
   font-family: Arial, sans-serif;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html {
-  background-color: white;
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 /* Dialogs */
 .dialog-container {
   display: flex;
@@ -274,28 +273,28 @@ code {
 .control-container-small {
   position: relative;
   align-items: center;
-  font-size: var(--text-lg);
+  font-size: var(--text-controls);
   width: calc(var(--gameSize) / 7);
   height: calc(var(--gameSize) / 20);
 }
 .control-container-medium {
   position: relative;
   align-items: center;
-  font-size: var(--text-lg);
+  font-size: var(--text-controls);
   width: calc(var(--gameSize) / 6);
   height: calc(var(--gameSize) / 20);
 }
 .control-container-large {
   position: relative;
   align-items: center;
-  font-size: var(--text-lg);
-  width: calc(var(--gameSize) / 5);
+  font-size: var(--text-controls);
+  width: calc(var(--gameSize) / 5.5);
   height: calc(var(--gameSize) / 20);
 }
 .control-container-xl {
   position: relative;
   align-items: center;
-  font-size: var(--text-lg);
+  font-size: var(--text-controls);
   width: calc(var(--gameSize) / 4.5);
   height: calc(var(--gameSize) / 20);
 }
