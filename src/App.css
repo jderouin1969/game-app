@@ -36,7 +36,7 @@
   --text-directions: 1rem;
   --text-base: 1rem;
   --text-lg: 1.1rem;
-  --text-xl: 1.7rem;
+  --text-message: 1.7rem;
 }
 html {
   height: 100%;
@@ -148,7 +148,7 @@ body {
   grid-row: 2;
 }
 .directions-p{
-  color: var(--fontGreen);
+  color: var(--fontBlue);
   font-size: var(--text-base);          
   margin-top: 0; 
   margin-bottom: 0;
@@ -203,7 +203,7 @@ body {
   white-space: nowrap;
   background-color: var(--body, white);
   color: var(--fontDark);
-  font-family: Arial; font-size: var(--text-xl);
+  font-family: Arial; font-size: var(--text-message);
   line-height: 1.1;
 }
 .control-panel {
