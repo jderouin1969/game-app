@@ -38,6 +38,7 @@
   --text-lg: 1.1rem;
   --text-message: 1.7rem;
   --base-font: 16px;
+  --directionsHeight: .85;
 }
 html {
   height: 100%;
@@ -113,7 +114,7 @@ body {
   border: none;
   margin-top: 3rem;
   width: var(--gameSize);
-  height: calc(var(--gameSize) * .85);
+  height: calc(var(--gameSize) * var(--directionsHeight));
   display: grid;
   color: var(--fontDark);
   grid-template-columns: calc(var(--gameSize) * .55) calc(var(--gameSize) * .45);
@@ -158,8 +159,8 @@ body {
 }
 .example-button {
   font-size: var(--text-dialog);
-  width: 6rem;
-  height: 1.6rem; 
+  width: calc(var(--text-dialog) * 5);
+  height:calc(var(--text-dialog) * 1.6);
   border-radius: 999px;
   border: none;
   outline: none;
