@@ -29,8 +29,8 @@
   --offWhite: #fcf7f8;
   --stop: 0%;
   --stopChange: 7.5%;
-  --text-controls: 1.2rem;
-  --text-dialog: 1rem;
+  --text-control: 1.2rem;
+  --text-dialog: 1.3rem;
   --text-numbers: 1.1rem;
   --text-buttons: 1.7rem;
   --text-directions: 1rem;
@@ -108,56 +108,57 @@ body {
 /* Direction Dialog */
 .dialog-directions {
   z-index: 5;
-  background: var(--fontGreen);
+  background: var(--offWhite);
   border-radius: 15px;
   border: none;
-  margin-top: calc(var(--gameSize) / 12);
+  margin-top: 3rem;
   width: var(--gameSize);
   height: calc(var(--gameSize) * .9);
   display: grid;
   color: var(--fontDark);
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  grid-template-rows: calc(var(--gameSize) 9/14) calc(var(--gameSize) 5/14) calc(var(--gameSize) 1/14) ;
+  grid-template-rows: calc(var(--gameSize) 8/14) calc(var(--gameSize) 5/14) calc(var(--gameSize) 1/14) ;
 }
 .directions-spanning {
   grid-column: 1 / 3;
 }
 .directions-hexadu {
-  background-color: var(--hint);
-  font-size: var(--text-dialogs);
+  background-color: var(--offWhite);
+  font-size: var(--text-dialog);
   border-radius: 15px;
   margin-top: calc(var(--gameSize) / 26);
+  margin-bottom: .5rem;
   display: flex;
   flex-direction: column;
 }
 .directions-hexadu-list {
-  background-color: var(--fontGreen);
+  background-color: var(--offWhite);
   margin: 0;
   display: flex;
   flex-direction: column;
 }
 .directions-clickTip{
   color: var(--fontBlue);
-  margin: 0;
-  background-color: var(--fontLight);
-  font-size: var(--text-base);          
   text-align: center;
+  margin-top: -.3rem;
+  background-color: var(--offWhite);
+  font-size: var(--text-dialog);          
 }
 .directions-game-list {
-  background-color: var(--fontBlue);
+  background-color: var(--offWhite);
   color: var(--fontDark);
   display: flex;
   flex-direction: column;
-  align-self: start;
+  margin-top: -.6rem;
   justify-self: center;
-  font-size: var(--text-directions);
+  font-size: var(--text-dialog);
   grid-column: 1 / 3;
   grid-row: 2;
 }
 .example-button {
-  font-size: var(--text-lg);
-  width: calc(var(--gameSize) / 5);
-  height: calc(var(--gameSize) / 20); 
+  font-size: var(--text-dialog);
+  width: 6rem;
+  height: 1.6rem; 
   border-radius: 999px;
   border: none;
   outline: none;
@@ -264,7 +265,7 @@ body {
 .control {
   position: relative;
   align-items: center;
-  font-size: var(--text-controls);
+  font-size: var(--text-control);
   height: calc(var(--gameSize) / 20);
 }
 .control-small {

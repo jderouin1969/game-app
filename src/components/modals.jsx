@@ -124,25 +124,28 @@ export function DirectionsDialog(props) {
         <div className='directions-hexadu'>
           <ul className='directions-hexadu-list'>
             <li className='hexadu-li' style={{color: (rule == 'hex') ? 'blue' : data.color.fontDark,
-              marginBottom: '.6rem'}} 
+              marginTop: '.5rem', marginBottom: '.5rem'}} 
               onClick={() => handleHex()}
               onMouseOver={() => handleHex()}
               onMouseOut={() => handleMouseOut()}
               >
               Each hexagon must contain the numbers 1 through 7.
             </li>
-            <li className='hexadu-li' style={{color: (rule == 'center') ? 'blue' : data.color.fontDark}}  
+            <li className='hexadu-li' style={{color: (rule == 'center') ? 'blue' : data.color.fontDark,
+              marginBottom: '.6rem'}}  
               onClick={() => handleCenters()}
               onMouseOver={() => handleCenters()}
               onMouseOut={() => handleMouseOut()}> 
               The hexagon centers must contain the numbers 1 through 7 without repeating a number in another center.</li>
-            <li className='hexadu-li' style={{color: (rule == 'axis') ? 'blue' : data.color.fontDark}}  
+            <li className='hexadu-li' style={{color: (rule == 'axis') ? 'blue' : data.color.fontDark,
+              marginBottom: '.6rem'}}  
               onClick={() => handleAxis()}
               onMouseOver={() => handleAxis()}
               onMouseOut={() => handleMouseOut()}
               >
               The three long diagonals must contain the numbers 1 through 7 without repeating a number along the same line.</li>
-            <li className='hexadu-li' style={{color: (rule == 'adjacent') ? 'blue' : data.color.fontDark}}
+            <li className='hexadu-li' style={{color: (rule == 'adjacent') ? 'blue' : data.color.fontDark,
+              marginBottom: '.6rem'}}
               onClick={() => handleAdjacent()}
               onMouseOver={() => handleAdjacent()}
               onMouseOut={() => handleMouseOut()}>
@@ -160,11 +163,11 @@ export function DirectionsDialog(props) {
           values={directionsValues}
         />
         <ul className='directions-game-list'>
-          <li style={{marginBottom: '30px'}}>Press <button className='example-button'>
+          <li style={{marginBottom: '.5rem'}}>Press <button className='example-button'>
             Easy</button> to change difficulty.</li>
-          <li>Press <button className='example-button'>
+          <li style={{marginBottom: '.5rem'}}>Press <button className='example-button'>
             Start</button> to begin a new game.</li>
-          <li>Press <button className='example-button'>
+          <li style={{marginBottom: '-.4rem'}} >Press <button className='example-button'>
             Check</button> when finished or to see if all values are correct.</li>
         </ul>
         <button className='dialog-button directions-spanning'
