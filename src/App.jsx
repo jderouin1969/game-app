@@ -1,8 +1,8 @@
 import {data} from './data.jsx'
-import {handleDifficulty, handleNew, handlePause, handleCheck, handleHint,
+import {handleDifficulty, handleStart, handlePause, handleCheck, handleHint,
   handleDirections, startNewGame} from './utils/controlHandles.jsx';
 import {usePuzzle, useGame} from './components/hooks.jsx';
-import {NewDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/modals.jsx';
+import {StartDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/modals.jsx';
 import MessageBox from './components/MessageBox.jsx';
 import ControlPanel from './components/ControlPanel.jsx';
 import PuzzleBox from './components/PuzzleBox.jsx';
@@ -89,15 +89,15 @@ function HexaduGame(){
     localStorage.setItem('hardTime', '0');
   }
   
-  const handleNewYes = () => {
+  const handleStartYes = () => {
     game.updateStatus('waiting');
-    game.setNewDialog(false);
+    game.setStartDialog(false);
     startNewGame(puzzle, game, data, newValues, finalValues);
   };
-  const handleNewNo = () => {
+  const handleStartNo = () => {
     game.startTimer();
     game.updateStatus('running');
-    game.setNewDialog(false);
+    game.setStartDialog(false);
   };
 
   const handleDifficultyYes = () => {
@@ -148,7 +148,7 @@ function HexaduGame(){
         handleDifficulty(puzzle, game);
         break;
       case 'start':
-        handleNew(puzzle, game, data, newValues, finalValues);
+        handleStart(puzzle, game, data, newValues, finalValues);
         break;
       case 'check':
         handleCheck(puzzle, game);
@@ -166,10 +166,6 @@ function HexaduGame(){
   };
   
   const handleCheckClick = () => {
-    const checkButton = document.getElementById("check-button");
-    if (checkButton){
-      console.log("check button exists");
-    }
     handleCheck(puzzle, game);
   };
   const handleCircleClick = (pos) => {
@@ -237,15 +233,14 @@ function HexaduGame(){
   /** Game Clicks **/ 
   return (
     <>
-      <NewDialog 
-        isOpen={game.newIsOpen} onYes={handleNewYes} onNo={handleNewNo}
+      <StartDialog 
+        isOpen={game.startIsOpen} onYes={handleStartYes} onNo={handleStartNo}
       />
       <DifficultyDialog 
         isOpen={game.difficultyIsOpen} onYes={handleDifficultyYes} onNo={handleDifficultyNo}
       />
       <DirectionsDialog
         puzzle={puzzle}
-        game={game}
         data={data}
         isOpen={game.directionsIsOpen} 
         onClose={handleDirectionsClose}
@@ -281,8 +276,6 @@ function HexaduGame(){
         </div>
         <div className="number-panel">
           <NumberPanel
-            game={game}
-            data={data}
             onNumberClick={handleNumberClick}
           />
         </div>

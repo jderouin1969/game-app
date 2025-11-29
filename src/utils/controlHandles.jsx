@@ -15,12 +15,12 @@ export function handleDifficulty(puzzle, game){
   }
 };
 
-export function handleNew(puzzle, game, data, newValues, finalValues){
+export function handleStart(puzzle, game, data, newValues, finalValues){
   game.updateMessage('');
   if (game.status == 'running' || game.status == 'paused' ){
     game.stopTimer();
     game.updateStatus('paused');
-    game.setNewDialog(true);
+    game.setStartDialog(true);
   } else {
     startNewGame(puzzle, game, data, newValues, finalValues);
   }

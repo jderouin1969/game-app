@@ -10,11 +10,6 @@
   --hex:#0a61c9;
   --dialogButton:#315cf4;
   --dialogHover:#1434a4;
-  --dialogBlur: rgba(0, 0, 0, 0.5);
-  --displayColor:#999999;
-  --displayBorder:#374458;
-  --message:#fcf7f8;
-  --boxShadow:rgba(0, 0, 0, 0.5);
   --axisFill:#b8b8bf;
   --otherFill:#d7d7db;
   --centerBorder:#0f1042;
@@ -27,19 +22,21 @@
   --fontBlue: #0000ff;
   --hint:#d99351;
   --offWhite: #fcf7f8;
+  --gray: #808080;
+  --dialogBlur: rgba(0, 0, 0, 0.5);
   --stop: 0%;
   --stopChange: 7.5%;
   --text-control: 1.2rem;
   --text-dialog: 1.3rem;
   --text-directions: 1rem;
-  --text-numbers: 1.5rem;
+  --text-numbers: 1.6rem;
   --text-buttons: 1rem;
   --text-message: 1.7rem;
   --base-font: 16px;
 }
 html {
   height: 100%;
-  background-color: white;
+  background-color: #ffffff;
   font-size: var(--base-font);
 }
 body {
@@ -49,12 +46,35 @@ body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
-  background-color: var(--body, white);
+  background-color: var(--body, #ffffff);
   font-family: Arial, sans-serif;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Navigation Bar */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0; 
+  width: 100%;
+  height: calc(var(--text-message) * 1.5);
+  z-index: 99;
+  background-image: radial-gradient(circle at center, var(--offWhite), var(--gray));
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 .3rem .5rem .2rem rgba(0, 0, 0, 0.35),
+    inset -.5rem -.8rem .8rem -.7rem rgba(40, 40, 40, 0.55);
+}
+.message-box {
+  text-align: center;
+  background-color: transparent;
+  color: var(--fontDark);
+  font-family: Arial; font-size: var(--text-message);
+}
+
 /* Dialogs */
 .dialog-container {
   display: flex;
@@ -83,7 +103,7 @@ body {
 }
 .dialog-button:active {
   position: relative; 
-  top: .1dvw;
+  top: .2rem;
   background: var(--dialogHover);
 }
 
@@ -91,15 +111,14 @@ body {
 .dialog-small {
   z-index: 5;
   position: fixed;
-  width: calc(var(--gameSize) * .6);
+  width: 28rem;
   background: var(--offWhite);
-  border-radius: 15px;
+  border-radius: 1rem;
   border: none;
   font-size: var(--text-dialog);
   color: var(--fontDark);
   text-wrap: wrap;
   text-align: center;
-  line-height: 1;
   margin-top: calc(var(--gameSize) * .35);
 }
 
@@ -107,7 +126,7 @@ body {
 .dialog-directions {
   z-index: 5;
   background: var(--offWhite);
-  border-radius: 15px;
+  border-radius: 1rem;
   border: none;
   margin-top: 3rem;
   width: var(--gameSize);
@@ -118,7 +137,7 @@ body {
   color: var(--fontDark);
 }
 .directions-puzzle-box {
-  border-radius: 15px;
+  border-radius: 1rem;
   height: calc(var(--gameSize) * .45);
   margin: auto;
   margin-bottom: 0;
@@ -152,8 +171,8 @@ body {
   align-items: center;
   color: var(--fontBlue);
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-  background-image: linear-gradient(176deg, white, gray);
-  box-shadow: .1dvw .3dvw .2dvw .1dvw var(--boxShadow),
+  background-image: linear-gradient(176deg, white, var(--gray));
+  box-shadow: .1dvw .3dvw .2dvw .1dvw rgba(0, 0, 0, 0.35),
     inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.8),
     inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.7),
     inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.7);
@@ -162,22 +181,6 @@ body {
   background-color: var(--offWhite);
   height: calc(var(--text-dialog) * 4); 
   text-align: center; 
-}
-
-/* Navigation Bar */
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0; 
-  width: 100%;
-  height: calc(var(--gameSize) / 16);
-  z-index: 99;
-  background-image: radial-gradient(circle at center, var(--offWhite), gray);
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 .22dvw .2dvw .1dvw var(--boxShadow),
-    inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.55);
 }
 
 /* Game Display */
@@ -193,12 +196,8 @@ body {
   grid-template-rows: calc(var(--gameSize) * .09) 
     calc(var(--gameSize) * .8) calc(var(--gameSize) * .11);
 }
-.message-box {
-  text-align: center;
-  background-color: transparent;
-  color: var(--fontDark);
-  font-family: Arial; font-size: var(--text-message);
-}
+
+/* Control Panel */
 .control-panel {
   display: flex;
   flex-direction: row;
@@ -206,54 +205,6 @@ body {
   width: var(--gameSize); 
   background-color: transparent;
 }
-.puzzle-box {
-  background: radial-gradient(circle at center, var(--puzzleInner), var(--puzzleOutter));
-  border-radius: 15px;
-  width: 97.5%;
-  height: 100%;
-  text-align: center;
-  box-shadow: .08dvw .22dvw .2dvw .1dvw var(--boxShadow),
-    inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.65),
-    inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.55),
-    inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.55);
-}
-.puzzle-box-animation {
-  width: 97.5%;
-  height: 100%;
-  background: radial-gradient(circle at center, 
-    var(--puzzleInner) 0%,
-    var(--puzzleOutter) var(--stop),
-    var(--puzzleMiddle) calc(var(--stop) + var(--stopChange)),
-    var(--puzzleOutter) calc(var(--stop) + (2 * var(--stopChange))),
-    var(--puzzleMiddle) calc(var(--stop) + (3 * var(--stopChange))),
-    var(--puzzleOutter) calc(var(--stop) + (4 * var(--stopChange))),
-    var(--puzzleMiddle) calc(var(--stop) + (5 * var(--stopChange))),
-    var(--puzzleOutter));
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: .08dvw .22dvw .2dvw .1dvw var(--boxShadow),
-    inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.65),
-    inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.55),
-    inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.55);
-}
-.svg-shadow {
-  filter: drop-shadow(2px 4px 2px rgba(0, 0, 0, 0.5));
-}
-.checkButton {
-  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.6));
-}
-.checkButton:hover .checkText {
-    fill: var(--fontGreen);
-}
-.checkButton.transition {
-  transform-origin: center;
-  transform-box: fill-box;
-  transition: transform 0.2s ease-in-out, filter 0.2 ease-in-out;
-  transform: scale(.95,.92);
-  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
-}
-
-/* Controls */
 .control {
   position: relative;
   align-items: center;
@@ -296,8 +247,8 @@ body {
   padding: 0;
   color: var(--fontBlue);
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-  background-image: linear-gradient(176deg, white, gray);
-  box-shadow: .1dvw .3dvw .2dvw .1dvw var(--boxShadow),
+  background-image: linear-gradient(176deg, white, var(--gray));
+  box-shadow: .1dvw .3dvw .2dvw .1dvw rgba(0, 0, 0, 0.35),
     inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.8),
     inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.7),
     inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.7);
@@ -316,14 +267,62 @@ body {
   border: none;
 }
 .control-top.transition {
-  background-image: linear-gradient(176deg, white, gray);
+  background-image: linear-gradient(176deg, white, var(--gray));
   box-shadow: .05dvw .075dvw .2dvw .2dvw rgba(0, 0, 0, 0.25),
     inset .15dvw .4dvw .4dvw -.1dvw rgba(40, 40, 40, 0.4),
     inset -.5dvw -.8dvw .4dvw -.7dvw rgba(40, 40, 40, 0.6);
   transform: scale(.98, .95);
 }
 
-/* Numbers */
+/* Puzzle Box */
+.puzzle-box {
+  background: radial-gradient(circle at center, var(--puzzleInner), var(--puzzleOutter));
+  border-radius: 1rem;
+  width: 97.5%;
+  height: 100%;
+  text-align: center;
+  box-shadow: .1rem .3rem .25rem .12rem rgba(0, 0, 0, 0.35),
+    inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.65),
+    inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.55),
+    inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.55);
+}
+.puzzle-box-animation {
+  width: 97.5%;
+  height: 100%;
+  background: radial-gradient(circle at center, 
+    var(--puzzleInner) 0%,
+    var(--puzzleOutter) var(--stop),
+    var(--puzzleMiddle) calc(var(--stop) + var(--stopChange)),
+    var(--puzzleOutter) calc(var(--stop) + (2 * var(--stopChange))),
+    var(--puzzleMiddle) calc(var(--stop) + (3 * var(--stopChange))),
+    var(--puzzleOutter) calc(var(--stop) + (4 * var(--stopChange))),
+    var(--puzzleMiddle) calc(var(--stop) + (5 * var(--stopChange))),
+    var(--puzzleOutter));
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: .08dvw .22dvw .2dvw .1dvw rgba(0, 0, 0, 0.35),
+    inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.65),
+    inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.55),
+    inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.55);
+}
+.svg-shadow {
+  filter: drop-shadow(2px 4px 2px rgba(0, 0, 0, 0.5));
+}
+.checkButton {
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.6));
+}
+.checkButton:hover .checkText {
+    fill: var(--fontGreen);
+}
+.checkButton.transition {
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: transform 0.2s ease-in-out, filter 0.2 ease-in-out;
+  transform: scale(.95,.92);
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+/* Number Panel */
 .number-panel {
   display: flex;
   flex-direction: row;
@@ -368,8 +367,8 @@ body {
   padding: 0; 
   color: var(--fontBlue);
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); 
-  background-image: linear-gradient(176deg, white, gray);
-  box-shadow: .1dvw .3dvw .2dvw .1dvw var(--boxShadow),
+  background-image: linear-gradient(176deg, white, var(--gray));
+  box-shadow: .1dvw .3dvw .2dvw .1dvw rgba(0, 0, 0, 0.35),
     inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.8),
     inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.7),
     inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.7);
@@ -384,7 +383,7 @@ body {
   border: none;
 }
 .number-top.transition {
-  background-image: linear-gradient(176deg, white, gray);
+  background-image: linear-gradient(176deg, white, var(--gray));
   box-shadow: .05dvw .075dvw .2dvw .2dvw rgba(0, 0, 0, 0.25),
     inset .15dvw .4dvw .4dvw -.1dvw rgba(40, 40, 40, 0.4),
     inset -.5dvw -.8dvw .4dvw -.7dvw rgba(40, 40, 40, 0.6);

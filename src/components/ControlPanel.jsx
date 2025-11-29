@@ -1,4 +1,3 @@
-import {setColors} from '../utils/setColors.jsx'
 import {useState} from 'react';
 
 ///* Labels *///
@@ -70,7 +69,6 @@ function ControlButton (props){
 ///* Control Panel *///
 function ControlPanel (props){
   const {game, data} = props;
-  setColors(game, data);
   const handleControlClick = (clickResult) => {
     props.onControlClick(clickResult);
   };

@@ -1,8 +1,7 @@
-import {setColors} from '../utils/setColors.jsx'
 import {formatTime} from '../utils/formatTime.jsx'
 import {useState} from 'react';
 
-export function NewDialog({ isOpen, onYes, onNo }) {
+export function StartDialog({ isOpen, onYes, onNo }) {
   if (!isOpen) {
     return null;
   }
@@ -10,16 +9,16 @@ export function NewDialog({ isOpen, onYes, onNo }) {
     <div className="dialog-container">
       <div className="dialog-small" onClick={(e) => e.stopPropagation()}>
           <p>Do you want to start a new game?</p>
-          <button className='dialog-button' 
-            style={{margin: '0px 15px 20px 15px'}} 
-            onClick={onYes}>
-            Yes
-          </button>
-          <button className='dialog-button' 
-            style={{margin: '0px 15px 20px 15px'}} 
-            onClick={onNo}>
-            No
-          </button>
+          <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: '1rem'}} >
+            <button className='dialog-button' 
+              onClick={onYes}>
+              Yes
+            </button>
+            <button className='dialog-button' 
+              onClick={onNo}>
+              No
+            </button>
+          </div>
       </div>
     </div>
   );
@@ -33,16 +32,16 @@ export function DifficultyDialog({ isOpen, onYes, onNo }) {
     <div className="dialog-container">
       <div className='dialog-small' onClick={(e) => e.stopPropagation()}>
           <p>End game and change difficulty?</p>
-          <button className='dialog-button'
-            style={{margin: '-20px 15px 20px 15px'}} 
-            onClick={onYes}>
-            Yes
-          </button>
-          <button className='dialog-button'
-            style={{margin: '-20px 15px 20px 15px'}} 
-            onClick={onNo}>
-            No
-          </button>
+          <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: '1rem'}} >
+            <button className='dialog-button' 
+              onClick={onYes}>
+              Yes
+            </button>
+            <button className='dialog-button' 
+              onClick={onNo}>
+              No
+            </button>
+          </div>
       </div>
     </div>
   );
@@ -96,7 +95,7 @@ export function FinishedDialog(props) {
 };
 
 export function DirectionsDialog(props) {
-  const {puzzle, game, data, isOpen, onClose} = props;
+  const {puzzle, data, isOpen, onClose} = props;
   const [rule, setRule] = useState('none');
   const directionsValues = [2,1,5,4,7,6,3,6,1,4,2,3,5,4,6,2,7,5,
     1,3,1,4,2,5,4,2,7,6,1,4,3,6,7,7,5,1,2];
@@ -124,7 +123,6 @@ export function DirectionsDialog(props) {
         <DirectionsPuzzleBox className='directions-puzzle-box' 
           rule={rule} 
           puzzle={puzzle}
-          game={game}
           data={data}
           values={directionsValues}
         />
@@ -276,8 +274,7 @@ function CircleText (props) {
 };
 
 const DirectionsPuzzleBox = (props) => {
-  const {rule, game, data, values} = props;
-  setColors(game, data);
+  const {rule, data, values} = props;
   return (
     <svg viewBox="0 0 600 600" style={{width: '100%', height: '90%'}}>
       {data.hexagonSmall.map((num) => (

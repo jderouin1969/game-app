@@ -1,4 +1,3 @@
-import {setColors} from '../utils/setColors.jsx'
 import {useState} from 'react';
 
 ///* Number Buttons *///
@@ -36,9 +35,8 @@ function NumberButton (props){
 
 ///* Number Panel *///
 function NumberPanel (props){
-  const {game, data, onNumberClick} = props;
+  const {onNumberClick} = props;
   const buttonId = ['1', '2', '3', '4', '5', '6', '7', 'X'];
-  setColors(game, data);
   const handleNumberClick = (clickResult) => {
     onNumberClick(clickResult);
   };

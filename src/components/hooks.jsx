@@ -162,9 +162,9 @@ export function useGame() {
 
   const lastClicked = useRef(99);  
 
-  const [newIsOpen, setNewIsOpen] = useState(false);  
-  const setNewDialog = (value) => {
-    setNewIsOpen(value);
+  const [startIsOpen, setStartIsOpen] = useState(false);  
+  const setStartDialog = (value) => {
+    setStartIsOpen(value);
   };
 
   const [difficultyIsOpen, setDifficultyIsOpen] = useState(false);  
@@ -184,7 +184,7 @@ export function useGame() {
 
   return {time, startTimer, stopTimer, resetTimer, level, updateLevel,
     status, updateStatus, message, updateMessage, 
-    animationId, animationRunning, getAnimation, lastClicked, newIsOpen, setNewDialog,
+    animationId, animationRunning, getAnimation, lastClicked, startIsOpen, setStartDialog,
     difficultyIsOpen, setDifficultyDialog, directionsIsOpen, setDirectionsDialog,
     finishedIsOpen, setFinishedDialog};
 }; 

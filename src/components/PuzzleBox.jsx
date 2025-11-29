@@ -1,4 +1,3 @@
-import {setColors} from '../utils/setColors.jsx'
 import {formatTime} from '../utils/formatTime.jsx'
 import {useState} from 'react';
 
@@ -58,7 +57,6 @@ function CircleText (props) {
 
 const PuzzleBox = (props) => {
   const {puzzle, game, data, onCircleClick, onCheckClick} = props;
-  setColors(game, data);
   const handleCircleClick = (pos) => {
     onCircleClick(pos);
   };
