@@ -38,7 +38,8 @@
   --text-lg: 1.1rem;
   --text-message: 1.7rem;
   --base-font: 16px;
-  --directionsHeight: .85;
+  --directionsHeight: .98;
+  --clickFont: orange;
 }
 html {
   height: 100%;
@@ -140,7 +141,7 @@ body {
   flex-direction: column;
 }
 .directions-clickTip{
-  color: var(--fontBlue);
+  color: var(--clickFont);
   text-align: center;
   margin-top: -.3rem;
   background-color: var(--offWhite);
