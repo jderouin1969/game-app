@@ -69,11 +69,12 @@ function HexaduGame(){
     if (gameSize > 300){
       document.documentElement.style.setProperty('--base-font', '10px');
       document.documentElement.style.setProperty('--text-dialog', '.8rem');
-      document.documentElement.style.setProperty('--directions-height', '.98');
+      document.documentElement.style.setProperty('--directions-height', '.96');
       return;
     }
     document.documentElement.style.setProperty('--base-font', '9px');
     document.documentElement.style.setProperty('--text-dialog', '.7rem');
+    document.documentElement.style.setProperty('--directions-height', '.98');
 
     return;
   } 
