@@ -18,51 +18,63 @@ function HexaduGame(){
   const finalValues = Array(37).fill('');
 
   (function() {
-    const gameSize = Math.min(window.innerWidth, window.innerHeight) * .99;
+    let gameSize;
     if (window.innerWidth > window.innerHeight){
-      document.documentElement.style.setProperty('--text-directions', '1.1rem');
-      document.documentElement.style.setProperty('--text-base', '1.1rem');
-      document.documentElement.style.setProperty('--text-lg', '1.2rem');
-      document.documentElement.style.setProperty('--text-controls', '1.3rem');
-      document.documentElement.style.setProperty('--text-numbers', '1.7rem');
-      document.documentElement.style.setProperty('--text-dialogs', '1.2rem');
-      document.documentElement.style.setProperty('--text-buttons', '1.7rem');
-      document.documentElement.style.setProperty('--text-message', '1.7rem');
+      gameSize = window.innerHeight * .93;
     } else {
-      document.documentElement.style.setProperty('--text-directions', '.65rem');
-      document.documentElement.style.setProperty('--text-base', '.65rem');
-      document.documentElement.style.setProperty('--text-lg', '1rem');
-      document.documentElement.style.setProperty('--text-controls', '.95rem');
-      document.documentElement.style.setProperty('--text-numbers', '1.5rem');
-      document.documentElement.style.setProperty('--text-dialogs', '1.2rem');
-      document.documentElement.style.setProperty('--text-buttons', '1.7rem');
-      document.documentElement.style.setProperty('--text-message', '1.7rem');
+      gameSize = window.innerWidth * .99;
     }
-    document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
+    setFontSize(gameSize);
   })();
   function setDynamicSize() {
-    const gameSize = Math.min(window.innerWidth, window.innerHeight) * .99;
+    let gameSize;
     if (window.innerWidth > window.innerHeight){
-      document.documentElement.style.setProperty('--text-directions', '1.1rem');
-      document.documentElement.style.setProperty('--text-base', '1.1rem');
-      document.documentElement.style.setProperty('--text-lg', '1.2rem');
-      document.documentElement.style.setProperty('--text-controls', '1.3rem');
-      document.documentElement.style.setProperty('--text-numbers', '1.7rem');
-      document.documentElement.style.setProperty('--text-dialogs', '1.2rem');
-      document.documentElement.style.setProperty('--text-buttons', '1.7rem');
-      document.documentElement.style.setProperty('--text-message', '1.7rem');
+      gameSize = window.innerHeight * .93;
     } else {
-      document.documentElement.style.setProperty('--text-directions', '.65rem');
-      document.documentElement.style.setProperty('--text-base', '.65rem');
-      document.documentElement.style.setProperty('--text-lg', '1rem');
-      document.documentElement.style.setProperty('--text-controls', '.95rem');
-      document.documentElement.style.setProperty('--text-numbers', '1.5rem');
-      document.documentElement.style.setProperty('--text-dialogs', '1.2rem');
-      document.documentElement.style.setProperty('--text-buttons', '1.7rem');
-      document.documentElement.style.setProperty('--text-message', '1.5rem');
+      gameSize = window.innerWidth * .99;
     }
-    document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
+    setFontSize(gameSize);
   }
+  function setFontSize(gameSize) {
+    document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
+    if (gameSize > 600){
+      document.documentElement.style.setProperty('--base-font', '16px');
+      console.log('base font should be 16');
+      return;
+    }
+    if (gameSize > 550){
+      document.documentElement.style.setProperty('--base-font', '15px');
+      console.log('base font should be 15');
+      return;
+    }
+    if (gameSize > 500){
+      document.documentElement.style.setProperty('--base-font', '14px');
+      console.log('base font should be 14');
+      return;
+    }
+    if (gameSize > 450){
+      document.documentElement.style.setProperty('--base-font', '13px');
+      console.log('base font should be 13');
+      return;
+    }
+    if (gameSize > 400){
+      document.documentElement.style.setProperty('--base-font', '12px');
+      console.log('base font should be 15');
+      return;
+    }
+    if (gameSize > 350){
+      document.documentElement.style.setProperty('--base-font', '11px');
+      console.log('base font should be 14');
+      return;
+    }
+    if (gameSize > 300){
+      document.documentElement.style.setProperty('--base-font', '10px');
+      console.log('base font should be 13');
+      return;
+    }
+    document.documentElement.style.setProperty('--base-font', '9px');
+    return;
+  } 
   window.addEventListener('resize', setDynamicSize);
 
   if (localStorage.getItem('easyCount') == null){
@@ -252,10 +264,12 @@ function HexaduGame(){
         onReset={handleFinishedReset} 
         onClose={handleFinishedClose}
       />
-      <div className="game-container">
+      <div className='topbar'>
         <div className="message-box">
           <MessageBox newMessage={game.message}/>
         </div>
+      </div>
+      <div className="game-container">
         <div className="control-panel">
           <ControlPanel
             game={game}

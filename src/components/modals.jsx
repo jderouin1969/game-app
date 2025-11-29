@@ -123,7 +123,8 @@ export function DirectionsDialog(props) {
       <div className='dialog-directions' onClick={(e) => e.stopPropagation()}>
         <div className='directions-hexadu'>
           <ul className='directions-hexadu-list'>
-            <li className='hexadu-li' style={{color: (rule == 'hex') ? 'blue' : data.color.fontDark}} 
+            <li className='hexadu-li' style={{color: (rule == 'hex') ? 'blue' : data.color.fontDark,
+              marginBottom: '.6rem'}} 
               onClick={() => handleHex()}
               onMouseOver={() => handleHex()}
               onMouseOut={() => handleMouseOut()}
@@ -147,7 +148,7 @@ export function DirectionsDialog(props) {
               onMouseOut={() => handleMouseOut()}>
               The same number can't be placed next to itself.</li>
           </ul>
-          <p className='directions-p' >
+          <p className='directions-clickTip' >
             Click on a rule to see example.
           </p>
         </div>
@@ -158,19 +159,19 @@ export function DirectionsDialog(props) {
           data={data}
           values={directionsValues}
         />
-          <ul className='directions-game-list'>
-            <li>Press <button className='example-button'>
-              Easy</button> to change difficulty.</li>
-            <li>Press <button className='example-button'>
-              Start</button> to begin a new game.</li>
-            <li>Press <button className='example-button'>
-              Check</button> when finished or to see if all values are correct.</li>
-          </ul>
-          <button className='dialog-button directions-spanning'
-            style={{margin: '-10px auto 10px auto'}} 
-            onClick={onClose}>
-            Close
-          </button>
+        <ul className='directions-game-list'>
+          <li style={{marginBottom: '30px'}}>Press <button className='example-button'>
+            Easy</button> to change difficulty.</li>
+          <li>Press <button className='example-button'>
+            Start</button> to begin a new game.</li>
+          <li>Press <button className='example-button'>
+            Check</button> when finished or to see if all values are correct.</li>
+        </ul>
+        <button className='dialog-button directions-spanning'
+          style={{margin: '-10px auto 10px auto'}} 
+          onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );
