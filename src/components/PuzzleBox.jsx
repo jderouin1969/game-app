@@ -75,14 +75,15 @@ const PuzzleBox = (props) => {
   };
   return (
     <svg viewBox="0 0 600 600" style={{width: '100%', height: '100%' }}>
-      <g id='time-display'>
+      <g id='time-display' style={{pointerEvents: 'none'}}>
         <rect className='svg-shadow' x='-40' y='20' 
           width='105' height='45' fill={`${data.color.offWhite}`}  rx="15" ry="15" 
         />
         <text x='24' y='45' fontFamily="Arial" fontSize="32" fill={`${data.color.fontDark}`}
           textAnchor="middle" dominantBaseline="middle">{formatTime(game.time)}</text>
       </g>
-      <g className={`checkButton ${transition ? 'transition' : ''}`}>
+      <g className={`checkButton ${transition ? 'transition' : ''}`}
+        style={{cursor: 'pointer'}}>
         <rect className='checkBase'  
           x='535' y='20' 
           width='105' height='45' fill={`${data.color.offWhite}`}  

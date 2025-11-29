@@ -54,8 +54,7 @@ export function FinishedDialog(props) {
   }
   const timeString=formatTime(game.time);
   const level=game.level;
-  let count, avgTime;
-
+  let count, avgTime, puzzles;
   switch (game.level) {
     case 'Easy':
       count = parseInt(localStorage.getItem('easyCount'));
@@ -69,26 +68,34 @@ export function FinishedDialog(props) {
       count = parseInt(localStorage.getItem('hardCount'));
       avgTime = formatTime(parseInt(localStorage.getItem('hardTime')) / count);
   }
+  if (count > 1){
+    puzzles='puzzles';
+  } else {
+    puzzles='puzzle';
+  }
   
   return (
     <div className="dialog-container">
       <div className='dialog-small' onClick={(e) => e.stopPropagation()}>
-        <p style={{fontSize: '2dvw', marginBottom: '0dvw', color: 'blue'}}>
-        You finished in {timeString}!</p>
-        <p style={{fontSize: '1.3dvw', marginTop: '1dvw', marginBottom: '0dvw'}}>
-        You have completed {count} {level} puzzles.</p>
-        <p style={{fontSize: '1.3dvw', marginTop: '1dvw'}}>
-        Average time: {avgTime}</p>
-        <button className='dialog-button'
-          style={{margin: '-20px 15px 20px 15px'}} 
-          onClick={onReset}>
-          Reset
-        </button>
-        <button className='dialog-button'
-          style={{margin: '-20px 15px 20px 15px'}} 
-          onClick={onClose}>
-          Close
-        </button>
+        <p className='finished-time'>
+          You finished in {timeString}!
+        </p>
+        <p className='finished-other'>
+          You have completed {count} {level} {puzzles}.
+        </p>
+        <p className='finished-other' style={{marginBottom: '.5rem'}}>
+          Average time: {avgTime}
+        </p>
+        <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: '1rem'}} >
+          <button className='dialog-button' 
+            onClick={onReset}>
+            Reset
+          </button>
+          <button className='dialog-button' 
+            onClick={onClose}>
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

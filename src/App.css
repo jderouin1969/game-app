@@ -29,7 +29,7 @@
   --text-control: 1.2rem;
   --text-dialog: 1.3rem;
   --text-directions: 1rem;
-  --text-numbers: 1.6rem;
+  --text-numbers: 1.7rem;
   --text-buttons: 1rem;
   --text-message: 1.7rem;
   --base-font: 16px;
@@ -122,6 +122,19 @@ body {
   margin-top: calc(var(--gameSize) * .35);
 }
 
+/* Finished Dialog */
+.finished-time {
+  font-size: var(--text-numbers);
+  margin-bottom: 0; 
+  color: var(--fontBlue);
+}
+.finished-other {
+  font-size: var(--text-dialog);
+  margin-top: .5rem;
+  margin-bottom: 0; 
+  color: var(--fontDark);
+}
+
 /* Direction Dialog */
 .dialog-directions {
   z-index: 5;
@@ -154,7 +167,7 @@ body {
 .directions-list {
   background-color: var(--offWhite);
   font-size: var(--text-dialog);
-  border-radius: 15px;
+  border-radius: 1rem;
   margin: 0;
   align-self: center;
   display: flex;
@@ -298,7 +311,7 @@ body {
     var(--puzzleOutter) calc(var(--stop) + (4 * var(--stopChange))),
     var(--puzzleMiddle) calc(var(--stop) + (5 * var(--stopChange))),
     var(--puzzleOutter));
-  border-radius: 15px;
+  border-radius: 1rem;
   text-align: center;
   box-shadow: .08dvw .22dvw .2dvw .1dvw rgba(0, 0, 0, 0.35),
     inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.65),
