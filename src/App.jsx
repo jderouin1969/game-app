@@ -70,8 +70,8 @@ function HexaduGame(){
       document.documentElement.style.setProperty('--text-dialog', '.8rem');
       return;
     }
-    document.documentElement.style.setProperty('--base-font', '9px');
-    document.documentElement.style.setProperty('--text-dialog', '.7rem');
+    document.documentElement.style.setProperty('--base-font', '7px');
+    document.documentElement.style.setProperty('--text-dialog', '.65rem');
     return;
   } 
   window.addEventListener('resize', setDynamicSize);
