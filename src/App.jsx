@@ -37,42 +37,40 @@ function HexaduGame(){
   }
   function setFontSize(gameSize) {
     document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
+    console.log(gameSize);
     if (gameSize > 600){
       document.documentElement.style.setProperty('--base-font', '16px');
-      console.log('base font should be 16');
+      document.documentElement.style.setProperty('--text-dialog', '1.3rem');
       return;
     }
     if (gameSize > 550){
       document.documentElement.style.setProperty('--base-font', '15px');
-      console.log('base font should be 15');
       return;
     }
     if (gameSize > 500){
       document.documentElement.style.setProperty('--base-font', '14px');
-      console.log('base font should be 14');
+      document.documentElement.style.setProperty('--text-dialog', '1.2rem');
       return;
     }
     if (gameSize > 450){
       document.documentElement.style.setProperty('--base-font', '13px');
-      console.log('base font should be 13');
       return;
     }
     if (gameSize > 400){
       document.documentElement.style.setProperty('--base-font', '12px');
-      console.log('base font should be 15');
+      document.documentElement.style.setProperty('--text-dialog', '1.1rem');
       return;
     }
     if (gameSize > 350){
       document.documentElement.style.setProperty('--base-font', '11px');
-      console.log('base font should be 14');
       return;
     }
     if (gameSize > 300){
       document.documentElement.style.setProperty('--base-font', '10px');
-      console.log('base font should be 13');
       return;
     }
     document.documentElement.style.setProperty('--base-font', '9px');
+    document.documentElement.style.setProperty('--text-dialog', '1rem');
     return;
   } 
   window.addEventListener('resize', setDynamicSize);

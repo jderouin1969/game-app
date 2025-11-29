@@ -167,11 +167,11 @@ export function DirectionsDialog(props) {
             Easy</button> to change difficulty.</li>
           <li style={{marginBottom: '.5rem'}}>Press <button className='example-button'>
             Start</button> to begin a new game.</li>
-          <li style={{marginBottom: '-.4rem'}} >Press <button className='example-button'>
+          <li style={{marginBottom: '0'}} >Press <button className='example-button'>
             Check</button> when finished or to see if all values are correct.</li>
         </ul>
         <button className='dialog-button directions-spanning'
-          style={{margin: '-10px auto 10px auto'}} 
+          style={{margin: '.5rem auto 0 auto'}} 
           onClick={onClose}>
           Close
         </button>
