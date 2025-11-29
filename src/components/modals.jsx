@@ -121,60 +121,63 @@ export function DirectionsDialog(props) {
   return (
     <div className="dialog-container">    
       <div className='dialog-directions' onClick={(e) => e.stopPropagation()}>
-        <div className='directions-hexadu'>
-          <ul className='directions-hexadu-list'>
-            <li className='hexadu-li' style={{color: (rule == 'hex') ? 'blue' : data.color.fontDark,
-              marginTop: '.5rem', marginBottom: '.5rem'}} 
-              onClick={() => handleHex()}
-              onMouseOver={() => handleHex()}
-              onMouseOut={() => handleMouseOut()}
-              >
-              Each hexagon must contain the numbers 1 through 7.
-            </li>
-            <li className='hexadu-li' style={{color: (rule == 'center') ? 'blue' : data.color.fontDark,
-              marginBottom: '.6rem'}}  
-              onClick={() => handleCenters()}
-              onMouseOver={() => handleCenters()}
-              onMouseOut={() => handleMouseOut()}> 
-              The hexagon centers must contain the numbers 1 through 7 without repeating a number in another center.</li>
-            <li className='hexadu-li' style={{color: (rule == 'axis') ? 'blue' : data.color.fontDark,
-              marginBottom: '.6rem'}}  
-              onClick={() => handleAxis()}
-              onMouseOver={() => handleAxis()}
-              onMouseOut={() => handleMouseOut()}
-              >
-              The three long diagonals must contain the numbers 1 through 7 without repeating a number along the same line.</li>
-            <li className='hexadu-li' style={{color: (rule == 'adjacent') ? 'blue' : data.color.fontDark,
-              marginBottom: '.6rem'}}
-              onClick={() => handleAdjacent()}
-              onMouseOver={() => handleAdjacent()}
-              onMouseOut={() => handleMouseOut()}>
-              The same number can't be placed next to itself.</li>
-          </ul>
-          <p className='directions-clickTip' >
-            Click on a rule to see example.
-          </p>
-        </div>
-        <DirectionsPuzzleBox
+        <DirectionsPuzzleBox className='directions-puzzle-box' 
           rule={rule} 
           puzzle={puzzle}
           game={game}
           data={data}
           values={directionsValues}
         />
-        <ul className='directions-game-list'>
-          <li style={{marginBottom: '.5rem'}}>Press <button className='example-button'>
-            Easy</button> to change difficulty.</li>
-          <li style={{marginBottom: '.5rem'}}>Press <button className='example-button'>
-            Start</button> to begin a new game.</li>
+        <p className='directions-clickTip' >
+        Click on a rule to see example.
+        </p>
+        <ul className='directions-hexadu'>
+          <li className='hexadu-li' style={{color: (rule == 'hex') ? 'blue' : data.color.fontDark,
+            marginTop: '.5rem', marginBottom: '.5rem'}} 
+            onClick={() => handleHex()}
+            onMouseOver={() => handleHex()}
+            onMouseOut={() => handleMouseOut()}
+            >
+            Each hexagon must contain the numbers 1 through 7.
+          </li>
+          <li className='hexadu-li' style={{color: (rule == 'center') ? 'blue' : data.color.fontDark,
+            marginBottom: '.6rem'}}  
+            onClick={() => handleCenters()}
+            onMouseOver={() => handleCenters()}
+            onMouseOut={() => handleMouseOut()}> 
+            The hexagon centers must contain the numbers 1 through 7 without repeating a number in another center.
+          </li>
+          <li className='hexadu-li' style={{color: (rule == 'axis') ? 'blue' : data.color.fontDark,
+            marginBottom: '.6rem'}}  
+            onClick={() => handleAxis()}
+            onMouseOver={() => handleAxis()}
+            onMouseOut={() => handleMouseOut()}>
+            The three long diagonals must contain the numbers 1 through 7 without repeating a number along the same line.
+          </li>
+          <li className='hexadu-li' style={{color: (rule == 'adjacent') ? 'blue' : data.color.fontDark,
+            marginBottom: '.6rem'}}
+            onClick={() => handleAdjacent()}
+            onMouseOver={() => handleAdjacent()}
+            onMouseOut={() => handleMouseOut()}>
+            The same number can't be placed next to itself.
+          </li>
+          <li style={{marginBottom: '.6rem'}}>Press <button className='example-button'>
+            Easy</button> to change difficulty.
+          </li>
+          <li style={{marginBottom: '.6rem'}}>Press <button className='example-button'>
+            Start</button> to begin a new game.
+          </li>
           <li style={{marginBottom: '0'}} >Press <button className='example-button'>
-            Check</button> when finished or to see if all values are correct.</li>
+            Check</button> when finished or to see if all values are correct.
+          </li>
         </ul>
-        <button className='dialog-button directions-spanning'
-          style={{margin: '.5rem auto 0 auto'}} 
-          onClick={onClose}>
-          Close
-        </button>
+        <div className='directions-button'>
+          <button className='dialog-button'
+            style={{margin: 'auto'}} 
+            onClick={onClose}>
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -276,7 +279,7 @@ const DirectionsPuzzleBox = (props) => {
   const {rule, game, data, values} = props;
   setColors(game, data);
   return (
-    <svg viewBox="0 0 600 600" style={{width: '100%', height: '100%' }}>
+    <svg viewBox="0 0 600 600" style={{width: '100%', height: '90%'}}>
       {data.hexagonSmall.map((num) => (
         <polygon 
           key={`h${num.id}`} 

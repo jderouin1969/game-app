@@ -37,10 +37,8 @@ function HexaduGame(){
   }
   function setFontSize(gameSize) {
     document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
-    console.log(gameSize);
     if (gameSize > 600){
       document.documentElement.style.setProperty('--base-font', '16px');
-      document.documentElement.style.setProperty('--text-dialog', '1.2rem');
       return;
     }
     if (gameSize > 550){
@@ -49,7 +47,6 @@ function HexaduGame(){
     }
     if (gameSize > 500){
       document.documentElement.style.setProperty('--base-font', '14px');
-      document.documentElement.style.setProperty('--text-dialog', '1.1rem');
       return;
     }
     if (gameSize > 450){
@@ -58,25 +55,17 @@ function HexaduGame(){
     }
     if (gameSize > 400){
       document.documentElement.style.setProperty('--base-font', '12px');
-      document.documentElement.style.setProperty('--text-dialog', '1rem');
-      document.documentElement.style.setProperty('--clickFont', 'pink');
       return;
     }
     if (gameSize > 350){
       document.documentElement.style.setProperty('--base-font', '11px');
-      document.documentElement.style.setProperty('--clickFont', 'green');
       return;
     }
     if (gameSize > 300){
       document.documentElement.style.setProperty('--base-font', '10px');
-      document.documentElement.style.setProperty('--text-dialog', '.8rem');
-      document.documentElement.style.setProperty('--clickFont', 'yellow');
       return;
     }
     document.documentElement.style.setProperty('--base-font', '9px');
-    document.documentElement.style.setProperty('--text-dialog', '.7rem');
-    document.documentElement.style.setProperty('--clickFont', 'purple');
-
     return;
   } 
   window.addEventListener('resize', setDynamicSize);

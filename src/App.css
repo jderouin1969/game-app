@@ -30,7 +30,7 @@
   --stop: 0%;
   --stopChange: 7.5%;
   --text-control: 1.2rem;
-  --text-dialog: 1.3rem;
+  --text-dialog: 1rem;
   --text-directions: 1rem;
   --text-numbers: 1.5rem;
   --text-buttons: 1.7rem;
@@ -38,8 +38,6 @@
   --text-lg: 1.1rem;
   --text-message: 1.7rem;
   --base-font: 16px;
-  --directionsHeight: .98;
-  --clickFont: orange;
 }
 html {
   height: 100%;
@@ -72,8 +70,8 @@ body {
   z-index: 5;   
 }
 .dialog-button{
-  width: calc(var(--gameSize) / 7);
-  height: calc(var(--gameSize) / 20);
+  width: calc(var(--text-dialog) * 5);
+  height: calc(var(--text-dialog) * 1.75);
 	border-radius: 100px;
   border: 0;
   background: var(--dialogButton);
@@ -115,53 +113,40 @@ body {
   border: none;
   margin-top: 3rem;
   width: var(--gameSize);
-  height: calc(var(--gameSize) * var(--directionsHeight));
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
   color: var(--fontDark);
-  grid-template-columns: calc(var(--gameSize) * .55) calc(var(--gameSize) * .45);
-  grid-template-rows: calc(var(--gameSize) * .6) calc(var(--gameSize) *.15) calc(var(--gameSize) * .05);
 }
-.directions-spanning {
-  grid-column: 1 / 3;
+.directions-puzzle-box {
+  border-radius: 15px;
+  height: calc(var(--gameSize) * .45);
+  margin: auto;
+  margin-bottom: 0;
 }
-.directions-hexadu {
+.directions-clickTip {
+  color: var(--fontBlue);
+  background-color: var(--offWhite);
+  height: var(--text-dialog); 
+  text-align: center;
+  margin-top: -.3rem;
+  margin-bottom: -.6rem;
+  font-size: var(--text-dialog);     
+}
+.directions-list {
   background-color: var(--offWhite);
   font-size: var(--text-dialog);
   border-radius: 15px;
-  margin-top: calc(var(--gameSize) / 26);
-  margin-bottom: .5rem;
-  margin-left: 0;
-  display: flex;
-  flex-direction: column;
-}
-.directions-hexadu-list {
-  background-color: var(--offWhite);
   margin: 0;
+  align-self: center;
   display: flex;
   flex-direction: column;
-}
-.directions-clickTip{
-  color: var(--clickFont);
-  text-align: center;
-  margin-top: -.3rem;
-  background-color: var(--offWhite);
-  font-size: var(--text-dialog);          
-}
-.directions-game-list {
-  background-color: var(--offWhite);
-  color: var(--fontDark);
-  display: flex;
-  flex-direction: column;
-  margin-top: 0;
-  justify-self: center;
-  font-size: var(--text-dialog);
-  grid-column: 1 / 3;
-  grid-row: 2;
 }
 .example-button {
   font-size: var(--text-dialog);
-  width: calc(var(--text-dialog) * 5);
-  height:calc(var(--text-dialog) * 1.6);
+  width: calc(var(--text-dialog) * 4);
+  height:calc(var(--text-dialog) * 1.4);
   border-radius: 999px;
   border: none;
   outline: none;
@@ -175,6 +160,12 @@ body {
     inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.7),
     inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.7);
 }
+.directions-button {
+  background-color: var(--offWhite);
+  height: calc(var(--text-dialog) * 4); 
+  text-align: center; 
+}
+
 /* Navigation Bar */
 .topbar {
   position: fixed;

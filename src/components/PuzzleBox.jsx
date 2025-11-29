@@ -78,26 +78,26 @@ const PuzzleBox = (props) => {
   return (
     <svg viewBox="0 0 600 600" style={{width: '100%', height: '100%' }}>
       <g id='time-display'>
-        <rect className='svg-shadow' x='-50' y='20' 
+        <rect className='svg-shadow' x='-40' y='20' 
           width='105' height='45' fill={`${data.color.offWhite}`}  rx="15" ry="15" 
         />
-        <text x='14' y='45' fontFamily="Arial" fontSize="32" fill={`${data.color.fontDark}`}
+        <text x='24' y='45' fontFamily="Arial" fontSize="32" fill={`${data.color.fontDark}`}
           textAnchor="middle" dominantBaseline="middle">{formatTime(game.time)}</text>
       </g>
       <g className={`checkButton ${transition ? 'transition' : ''}`}>
         <rect className='checkBase'  
-          x='545' y='20' 
+          x='535' y='20' 
           width='105' height='45' fill={`${data.color.offWhite}`}  
           rx="15" ry="15"
         />
         <text className='checkText'
-          x='595' y='45' 
+          x='585' y='45' 
           fontFamily="Arial" fontSize="26" fill={`${data.color.fontBlue}`}
           textAnchor="middle" dominantBaseline="middle">
           Check
         </text>
         <rect id='check-button' 
-          x='545' y='20' 
+          x='535' y='20' 
           width='105' height='45' fill='transparent'  
           rx="15" ry="15"
           onClick={() => handleCheckClick()}
