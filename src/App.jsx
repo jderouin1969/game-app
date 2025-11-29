@@ -58,7 +58,7 @@ function HexaduGame(){
     }
     if (gameSize > 400){
       document.documentElement.style.setProperty('--base-font', '12px');
-      document.documentElement.style.setProperty('--text-dialog', '1.1rem');
+      document.documentElement.style.setProperty('--text-dialog', '1rem');
       return;
     }
     if (gameSize > 350){
@@ -67,10 +67,11 @@ function HexaduGame(){
     }
     if (gameSize > 300){
       document.documentElement.style.setProperty('--base-font', '10px');
+      document.documentElement.style.setProperty('--text-dialog', '.8rem');
       return;
     }
     document.documentElement.style.setProperty('--base-font', '9px');
-    document.documentElement.style.setProperty('--text-dialog', '1rem');
+    document.documentElement.style.setProperty('--text-dialog', '.7rem');
     return;
   } 
   window.addEventListener('resize', setDynamicSize);

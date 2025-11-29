@@ -108,7 +108,7 @@ body {
 /* Direction Dialog */
 .dialog-directions {
   z-index: 5;
-  background: var(--fontGreen);
+  background: var(--offWhite);
   border-radius: 15px;
   border: none;
   margin-top: 3rem;
