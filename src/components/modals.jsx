@@ -176,7 +176,7 @@ export function DirectionsDialog(props) {
             Check</button> when finished or to see if all values are correct.
           </li>
         </ul>
-        <div className='directions-button'>
+        <div className='directions-button-container'>
           <button className='dialog-button'
             style={{margin: 'auto'}} 
             onClick={onClose}>

@@ -174,23 +174,23 @@ body {
   flex-direction: column;
 }
 .example-button {
-  font-size: var(--text-dialog);
-  width: calc(var(--text-dialog) * 4);
-  height:calc(var(--text-dialog) * 1.4);
-  border-radius: 999px;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 100px;
   border: none;
   outline: none;
   justify-content: center;
   align-items: center;
   color: var(--fontBlue);
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-  background-image: linear-gradient(176deg, white, var(--gray));
-  box-shadow: .1dvw .3dvw .2dvw .1dvw rgba(0, 0, 0, 0.35),
-    inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.8),
-    inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.7),
-    inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.7);
+  font-size: var(--text-control);
+  text-shadow: .03rem .04rem .08rem rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(176deg, #ffffff, var(--gray));
+  box-shadow: .05rem .2rem .25rem .15rem rgba(0, 0, 0, 0.35),
+    inset .3rem .7rem .7rem -.6rem rgba(240, 240, 240, 0.8),
+    inset .3rem .7rem 1rem -.65rem rgba(230, 230, 230, 0.7),
+    inset -.35rem -.7rem .7rem -.6rem rgba(40, 40, 40, 0.5);
 }
-.directions-button {
+.directions-button-container {
   background-color: var(--offWhite);
   height: calc(var(--text-dialog) * 4); 
   text-align: center; 
@@ -222,7 +222,7 @@ body {
   position: relative;
   align-items: center;
   font-size: var(--text-control);
-  height: calc(var(--gameSize) / 20);
+  height: 2rem;
 }
 .control-small {
   width: 5rem;
@@ -242,29 +242,28 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 999px;
+  border-radius: 100px;
   border: none;
   background-image: linear-gradient(178deg, #8d8d8d, #676767);
-  filter: blur(.1dvw);
 }
 .control-top {
   z-index: 2;
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 999px;
+  border-radius: 100px;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center; 
   padding: 0;
   color: var(--fontBlue);
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  text-shadow: .03rem .04rem .08rem rgba(255, 255, 255, 0.5);
   background-image: linear-gradient(176deg, white, var(--gray));
-  box-shadow: .1dvw .3dvw .2dvw .1dvw rgba(0, 0, 0, 0.35),
-    inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.8),
-    inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.7),
-    inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.7);
+  box-shadow: .05rem .2rem .25rem .15rem rgba(0, 0, 0, 0.35),
+    inset .3rem .7rem .7rem -.6rem rgba(240, 240, 240, 0.8),
+    inset .3rem .7rem 1rem -.65rem rgba(230, 230, 230, 0.7),
+    inset -.35rem -.7rem .7rem -.6rem rgba(40, 40, 40, 0.5);
   transition: background-image 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .control-top:disabled {
