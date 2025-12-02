@@ -1,4 +1,4 @@
-import {data} from './data.jsx'
+import {data} from './shared/data.jsx'
 import {handleDifficulty, handleStart, handlePause, handleCheck, handleHint,
   handleDirections, startNewGame} from './utils/controlHandles.jsx';
 import {usePuzzle, useGame} from './components/hooks.jsx';
