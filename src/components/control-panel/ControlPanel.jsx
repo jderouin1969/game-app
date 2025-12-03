@@ -68,7 +68,7 @@ function ControlButton (props){
 };
 
 ///* Control Panel *///
-function ControlPanel (props){
+export function ControlPanel (props){
   const {game, data} = props;
   const handleControlClick = (clickResult) => {
     props.onControlClick(clickResult);
@@ -103,5 +103,3 @@ function ControlPanel (props){
     </>
   );    
 };
-
-export default ControlPanel;

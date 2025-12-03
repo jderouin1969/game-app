@@ -56,7 +56,7 @@ function CircleText (props) {
   );
 };
 
-const PuzzleBox = (props) => {
+export const PuzzleBox = (props) => {
   const {puzzle, game, data, onCircleClick, onCheckClick} = props;
   const handleCircleClick = (pos) => {
     onCircleClick(pos);
@@ -127,5 +127,3 @@ const PuzzleBox = (props) => {
     </svg>
   );
 };
-
-export default PuzzleBox;

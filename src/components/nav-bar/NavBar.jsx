@@ -1,6 +1,6 @@
 import './navBar.css';
 
-function NavBar (props){
+export function NavBar (props){
   const {game} = props;
   return (
     <div className='nav-bar'>
@@ -19,5 +19,3 @@ function MessageBox (props){
     </>
   );
 };
-
-export default NavBar;

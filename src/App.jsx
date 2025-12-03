@@ -1,8 +1,8 @@
 import {data} from './shared/data.jsx'
 import {startNewGame} from './components/control-panel/controlHandles.jsx';
 import {usePuzzle, useGame} from './utils/hooks.jsx';
-import {StartDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/dialogs/dialogs.jsx';
-import {ControlPanel, control, NavBar, NumberPanel, PuzzleBox, } from './components';
+import {StartDialog, DifficultyDialog, FinishedDialog, DirectionsDialog} from './components';
+import {ControlPanel, control, NavBar, NumberPanel, PuzzleBox} from './components';
 import './App.css'
 import {useEffect} from 'react';
 
@@ -22,6 +22,7 @@ function HexaduGame(){
     }
     setFontSize(gameSize);
   })();
+  
   function setDynamicSize() {
     let gameSize;
     if (window.innerWidth > window.innerHeight){
@@ -31,17 +32,11 @@ function HexaduGame(){
     }
     setFontSize(gameSize);
   }
+
   function setFontSize(gameSize) {
-    document.documentElement.style.setProperty('--gameSize', `${gameSize}px`);
-    if (gameSize > 600){
-      document.documentElement.style.setProperty('--base-font', '16px');
-      return;
-    }
-    if (gameSize > 550){
-      document.documentElement.style.setProperty('--base-font', '15px');
-      return;
-    }
-    if (gameSize > 500){
+    console.log(gameSize);
+    /*
+    if (gameSize < 500){
       document.documentElement.style.setProperty('--base-font', '14px');
       return;
     }
@@ -62,6 +57,7 @@ function HexaduGame(){
       return;
     }
     document.documentElement.style.setProperty('--base-font', '9px');
+    */
     return;
   } 
   window.addEventListener('resize', setDynamicSize);
@@ -226,7 +222,7 @@ function HexaduGame(){
   /** Game Clicks **/ 
   return (
     <>
-      <StartDialog 
+      <StartDialog
         isOpen={game.startIsOpen} onYes={handleStartYes} onNo={handleStartNo}
       />
       <DifficultyDialog 

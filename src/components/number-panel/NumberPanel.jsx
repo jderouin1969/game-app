@@ -35,7 +35,7 @@ function NumberButton (props){
 };
 
 ///* Number Panel *///
-function NumberPanel (props){
+export function NumberPanel (props){
   const {onNumberClick} = props;
   const buttonId = ['1', '2', '3', '4', '5', '6', '7', 'X'];
   const handleNumberClick = (clickResult) => {
@@ -49,5 +49,3 @@ function NumberPanel (props){
     </>
   );
 };
-
-export default NumberPanel;

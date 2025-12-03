@@ -28,5 +28,6 @@
   --text-numbers: 1.7rem;
   --text-buttons: 1rem;
   --text-message: 1.7rem;
+  --gameSize: min(93vh, 99vw);
   --base-font: 16px;
 }
