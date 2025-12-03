@@ -1,4 +1,4 @@
-import {data} from './data.jsx'
+import {data} from './shared/data.jsx'
 import {control} from './index.jsx'
 import {startNewGame} from './components/control-panel/controlHandles.jsx';
 import {usePuzzle, useGame} from './utils/hooks.jsx';
