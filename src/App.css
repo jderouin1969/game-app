@@ -25,18 +25,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dialogs */
-
-
-
-
-
-
-
-
-
-
-
 /* Game Display */
 .game-container {
   position: relative;
@@ -45,7 +33,7 @@ body {
   place-items: center;
   width: var(--gameSize);
   height: var(--gameSize);
-  margin-top: calc(var(--gameSize) / 16);
+  margin-top: calc(var(--gameSize) / 15);
   grid-template-columns: var(--gameSize);
   grid-template-rows: calc(var(--gameSize) * .09) 
     calc(var(--gameSize) * .8) calc(var(--gameSize) * .11);
