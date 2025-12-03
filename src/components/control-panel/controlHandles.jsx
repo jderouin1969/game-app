@@ -1,6 +1,6 @@
-import {makePuzzle} from './makePuzzle.jsx'
+import {makePuzzle} from '../../utils/makePuzzle.jsx'
 
-export function handleDifficulty(puzzle, game){
+function difficulty(puzzle, game){
   if (game.status == 'running' || game.status == 'paused' ){
     game.stopTimer();
     game.updateStatus('paused');
@@ -15,7 +15,7 @@ export function handleDifficulty(puzzle, game){
   }
 };
 
-export function handleStart(puzzle, game, data, newValues, finalValues){
+function start(puzzle, game, data, newValues, finalValues){
   game.updateMessage('');
   if (game.status == 'running' || game.status == 'paused' ){
     game.stopTimer();
@@ -32,7 +32,7 @@ export function startNewGame(puzzle, game, data, newValues, finalValues){
   makePuzzle(puzzle, game, data, newValues, finalValues);
 };
 
-export function handleCheck (puzzle, game){
+function check (puzzle, game){
   let errors = 0;
   let empty = 0;
   for (let i=0; i<37; i++) {
@@ -65,7 +65,7 @@ export function handleCheck (puzzle, game){
   finishScreen(game);
 };
 
-export function handleHint(puzzle, game, data){
+function hint(puzzle, game, data){
   if (game.status == 'waiting') {
     game.updateMessage('Press New to start.');
     return;
@@ -188,7 +188,7 @@ function finishScreen(game){
   }, 4950);
 };
 
-export function handlePause (game){
+export function pause (game){
   if (game.status == 'set' || game.status == 'running'){
     game.stopTimer();
     game.updateMessage('');
@@ -201,11 +201,16 @@ export function handlePause (game){
   }
 };
 
-export function handleDirections(game){
+export function directions(game){
   game.stopTimer();
   game.setDirectionsDialog(true);
 };
 
-export function handleStatistics(game){
-  game.setStatisticsDialog(true);
+export default {
+  difficulty,
+  start,
+  hint,
+  pause,
+  directions,
+  check
 };

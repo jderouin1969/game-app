@@ -1,10 +1,9 @@
-import {data} from './shared/data.jsx'
-import {handleDifficulty, handleStart, handlePause, handleCheck, handleHint,
-  handleDirections, startNewGame} from './utils/controlHandles.jsx';
-import {usePuzzle, useGame} from './components/hooks.jsx';
+import {data} from './data.jsx'
+import {control} from './index.jsx'
+import {startNewGame} from './components/control-panel/controlHandles.jsx';
+import {usePuzzle, useGame} from './utils/hooks.jsx';
 import {StartDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/dialogs/dialogs.jsx';
-import {NavBar, MessageBox} from './components/nav-bar/NavBar.jsx';
-import ControlPanel from './components/ControlPanel.jsx';
+import {ControlPanel, NavBar} from './components';
 import PuzzleBox from './components/PuzzleBox.jsx';
 import NumberPanel from './components/NumberPanel.jsx';
 import './App.css'
@@ -145,28 +144,25 @@ function HexaduGame(){
     game.lastClicked.current = 99;
     switch (clickedControl) {
       case 'difficulty':
-        handleDifficulty(puzzle, game);
+        control.difficulty(puzzle, game);
         break;
       case 'start':
-        handleStart(puzzle, game, data, newValues, finalValues);
-        break;
-      case 'check':
-        handleCheck(puzzle, game);
+        control.start(puzzle, game, data, newValues, finalValues);
         break;
       case 'hint':
-        handleHint(puzzle, game, data);
+        control.hint(puzzle, game, data);
         break;
       case 'pause':
-        handlePause(game);
+        control.pause(game);
         break;
       case 'directions':
-        handleDirections(game);
+        control.directions(game);
         break;
     }
   };
   
   const handleCheckClick = () => {
-    handleCheck(puzzle, game);
+    control.check(puzzle, game);
   };
   const handleCircleClick = (pos) => {
     game.updateMessage('');
@@ -255,7 +251,7 @@ function HexaduGame(){
       <NavBar
         game={game}
       />
-      <div className="game-container">
+      <div className='game-container'>
         <div className="control-panel">
           <ControlPanel
             game={game}
