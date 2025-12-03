@@ -2,7 +2,7 @@ import {data} from './shared/data.jsx'
 import {handleDifficulty, handleStart, handlePause, handleCheck, handleHint,
   handleDirections, startNewGame} from './utils/controlHandles.jsx';
 import {usePuzzle, useGame} from './components/hooks.jsx';
-import {StartDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/modals.jsx';
+import {StartDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/dialogs/dialogs.jsx';
 import {NavBar, MessageBox} from './components/nav-bar/NavBar.jsx';
 import ControlPanel from './components/ControlPanel.jsx';
 import PuzzleBox from './components/PuzzleBox.jsx';
