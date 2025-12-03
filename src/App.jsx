@@ -3,9 +3,8 @@ import {control} from './index.jsx'
 import {startNewGame} from './components/control-panel/controlHandles.jsx';
 import {usePuzzle, useGame} from './utils/hooks.jsx';
 import {StartDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/dialogs/dialogs.jsx';
-import {ControlPanel, NavBar} from './components';
+import {ControlPanel, NavBar, NumberPanel} from './components';
 import PuzzleBox from './components/PuzzleBox.jsx';
-import NumberPanel from './components/NumberPanel.jsx';
 import './App.css'
 import {useEffect} from 'react';
 

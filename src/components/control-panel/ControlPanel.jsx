@@ -1,3 +1,4 @@
+import './controlPanel.css';
 import {useState} from 'react';
 
 ///* Labels *///
