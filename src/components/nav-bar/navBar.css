@@ -1,0 +1,24 @@
+@import '..\..\shared\variables.css';
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-bottom: 1rem; 
+  width: 100%;
+  height: calc(var(--text-message) * 1.5);
+  z-index: 99;
+  background-image: radial-gradient(circle at center, var(--offWhite), var(--gray));
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 .3rem .5rem .2rem rgba(0, 0, 0, 0.35),
+    inset -.5rem -.8rem .8rem -.7rem rgba(40, 40, 40, 0.55);
+}
+
+.message-box {
+  text-align: center;
+  background-color: transparent;
+  color: var(--fontDark);
+  font-family: Arial; font-size: var(--text-message);
+}

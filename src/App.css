@@ -4,11 +4,13 @@
   max-width: 1280px;
   margin: 0 auto;
 }
+
 html {
   height: 100%;
   background-color: #ffffff;
   font-size: var(--base-font);
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -24,10 +26,11 @@ body {
 }
 
 /* Navigation Bar */
-.topbar {
+.navbar {
   position: fixed;
   top: 0;
-  left: 0; 
+  left: 0;
+  margin-bottom: 1rem; 
   width: 100%;
   height: calc(var(--text-message) * 1.5);
   z-index: 99;

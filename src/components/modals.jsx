@@ -84,7 +84,7 @@ export function FinishedDialog(props) {
           You have completed {count} {level} {puzzles}.
         </p>
         <p className='finished-other' style={{marginBottom: '.5rem'}}>
-          Average time: {avgTime}
+          Average time:  {avgTime}
         </p>
         <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: '1rem'}} >
           <button className='dialog-button' 

@@ -3,7 +3,7 @@ import {handleDifficulty, handleStart, handlePause, handleCheck, handleHint,
   handleDirections, startNewGame} from './utils/controlHandles.jsx';
 import {usePuzzle, useGame} from './components/hooks.jsx';
 import {StartDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/modals.jsx';
-import MessageBox from './components/MessageBox.jsx';
+import {NavBar, MessageBox} from './components/nav-bar/MessageBox.jsx';
 import ControlPanel from './components/ControlPanel.jsx';
 import PuzzleBox from './components/PuzzleBox.jsx';
 import NumberPanel from './components/NumberPanel.jsx';
@@ -252,7 +252,7 @@ function HexaduGame(){
         onReset={handleFinishedReset} 
         onClose={handleFinishedClose}
       />
-      <div className='topbar'>
+      <div className='navbar'>
         <div className="message-box">
           <MessageBox newMessage={game.message}/>
         </div>
