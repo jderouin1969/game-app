@@ -1,4 +1,5 @@
-import {formatTime} from '../utils/formatTime.jsx'
+import './puzzleBox.css';
+import {formatTime} from '../../utils/formatTime.jsx'
 import {useState} from 'react';
 
 function CircleText (props) {

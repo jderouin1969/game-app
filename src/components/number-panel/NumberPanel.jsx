@@ -1,3 +1,4 @@
+import './numberPanel.css';
 import {useState} from 'react';
 
 ///* Number Buttons *///

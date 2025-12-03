@@ -1,1 +1,0 @@
-export {default as control} from './components/control-panel/controlHandles.jsx';

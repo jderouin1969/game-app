@@ -1,0 +1,68 @@
+@import '..\..\shared\variables.css';
+
+.number-panel {
+  display: flex;
+  flex-direction: row;
+  width: 98%;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: transparent;
+}
+.number-container {
+  position: relative;
+  align-items: center;
+  font-size: var(--text-numbers);
+  width: calc(var(--gameSize) / 12);
+  height: calc(var(--gameSize) / 12);
+}
+.number-base {
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background-image: linear-gradient(178deg, #8d8d8d, #676767);
+  filter: blur(.1dvw);
+}
+.number-top {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; 
+  color: var(--fontBlue);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); 
+  background-image: linear-gradient(176deg, white, var(--gray));
+  box-shadow: .1dvw .3dvw .2dvw .1dvw rgba(0, 0, 0, 0.35),
+    inset .4dvw .8dvw .8dvw -.7dvw rgba(240, 240, 240, 0.8),
+    inset .4dvw .8dvw 1.1dvw -.8dvw rgba(230, 230, 230, 0.7),
+    inset -.5dvw -.8dvw .8dvw -.7dvw rgba(40, 40, 40, 0.7);
+  transition: background-image 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.number-top:focus {
+  outline: none;
+  border: none;
+}
+.number-top:hover {
+  color: var(--fontGreen);
+  border: none;
+}
+.number-top.transition {
+  background-image: linear-gradient(176deg, white, var(--gray));
+  box-shadow: .05dvw .075dvw .2dvw .2dvw rgba(0, 0, 0, 0.25),
+    inset .15dvw .4dvw .4dvw -.1dvw rgba(40, 40, 40, 0.4),
+    inset -.5dvw -.8dvw .4dvw -.7dvw rgba(40, 40, 40, 0.6);
+  transform: scale(.95, .95);
+}

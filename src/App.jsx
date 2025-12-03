@@ -1,10 +1,8 @@
 import {data} from './shared/data.jsx'
-import {control} from './index.jsx'
 import {startNewGame} from './components/control-panel/controlHandles.jsx';
 import {usePuzzle, useGame} from './utils/hooks.jsx';
 import {StartDialog, DifficultyDialog, DirectionsDialog, FinishedDialog} from './components/dialogs/dialogs.jsx';
-import {ControlPanel, NavBar, NumberPanel} from './components';
-import PuzzleBox from './components/PuzzleBox.jsx';
+import {ControlPanel, control, NavBar, NumberPanel, PuzzleBox, } from './components';
 import './App.css'
 import {useEffect} from 'react';
 
