@@ -1,4 +1,5 @@
-import {formatTime} from '../utils/formatTime.jsx'
+import './dialogs.css';
+import {formatTime} from '../../utils/formatTime.jsx'
 import {useState} from 'react';
 
 export function StartDialog({ isOpen, onYes, onNo }) {
