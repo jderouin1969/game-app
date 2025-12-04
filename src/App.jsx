@@ -1,8 +1,7 @@
 import {data} from './shared/data.jsx'
-import {usePuzzle, useGame} from './utils/hooks.jsx';
-import {setCounts} from './utils/setCounts.jsx';
-import {StartDialog, DifficultyDialog, FinishedDialog, DirectionsDialog} from './components';
-import {ControlPanel, control, NavBar, NumberPanel, PuzzleBox} from './components';
+import {usePuzzle, useGame, setCounts} from './utils/utilsIndex.jsx';
+import {StartDialog, DifficultyDialog, FinishedDialog, DirectionsDialog} from './components/componentIndex.jsx';
+import {ControlPanel, control, NavBar, NumberPanel, PuzzleBox} from './components/componentIndex.jsx';
 import './App.css'
 import {useEffect} from 'react';
 
@@ -14,13 +13,7 @@ function HexaduGame() {
   const finalValues = Array(37).fill('');
 
   setCounts();
-  /*
-  const handleStartNo = () => {
-    game.startTimer();
-    game.updateStatus('running');
-    game.setStartDialog(false);
-  };
-  */
+
   const handleDifficultyYes = () => {
     game.updateStatus('waiting');
     game.setDifficultyDialog(false);
