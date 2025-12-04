@@ -1,102 +1,31 @@
 import {data} from './shared/data.jsx'
-import {startNewGame} from './components/control-panel/controlHandles.jsx';
 import {usePuzzle, useGame} from './utils/hooks.jsx';
+import {setCounts} from './utils/setCounts.jsx';
 import {StartDialog, DifficultyDialog, FinishedDialog, DirectionsDialog} from './components';
 import {ControlPanel, control, NavBar, NumberPanel, PuzzleBox} from './components';
 import './App.css'
 import {useEffect} from 'react';
 
 ///*** HexaduGame ***///
-function HexaduGame(){
+function HexaduGame() {
   const game = useGame();
   const puzzle = usePuzzle();
   const newValues = Array(37).fill('');
   const finalValues = Array(37).fill('');
 
-  (function() {
-    let gameSize;
-    if (window.innerWidth > window.innerHeight){
-      gameSize = window.innerHeight * .93;
-    } else {
-      gameSize = window.innerWidth * .99;
-    }
-    setFontSize(gameSize);
-  })();
-  
-  function setDynamicSize() {
-    let gameSize;
-    if (window.innerWidth > window.innerHeight){
-      gameSize = window.innerHeight * .93;
-    } else {
-      gameSize = window.innerWidth * .99;
-    }
-    setFontSize(gameSize);
-  }
-
-  function setFontSize(gameSize) {
-    console.log(gameSize);
-    /*
-    if (gameSize < 500){
-      document.documentElement.style.setProperty('--base-font', '14px');
-      return;
-    }
-    if (gameSize > 450){
-      document.documentElement.style.setProperty('--base-font', '13px');
-      return;
-    }
-    if (gameSize > 400){
-      document.documentElement.style.setProperty('--base-font', '12px');
-      return;
-    }
-    if (gameSize > 350){
-      document.documentElement.style.setProperty('--base-font', '11px');
-      return;
-    }
-    if (gameSize > 300){
-      document.documentElement.style.setProperty('--base-font', '10px');
-      return;
-    }
-    document.documentElement.style.setProperty('--base-font', '9px');
-    */
-    return;
-  } 
-  window.addEventListener('resize', setDynamicSize);
-
-  if (localStorage.getItem('easyCount') == null){
-    localStorage.setItem('easyCount', '0');
-  }
-  if (localStorage.getItem('mediumCount') == null){
-    localStorage.setItem('mediumCount', '0');
-  }
-  if (localStorage.getItem('hardCount') == null){
-    localStorage.setItem('hardCount', '0');
-  }
-  if (localStorage.getItem('easyTime') == null){
-    localStorage.setItem('easyTime', '0');
-  }
-  if (localStorage.getItem('mediumTime') == null){
-    localStorage.setItem('mediumTime', '0');
-  }
-  if (localStorage.getItem('hardTime') == null){
-    localStorage.setItem('hardTime', '0');
-  }
-  
-  const handleStartYes = () => {
-    game.updateStatus('waiting');
-    game.setStartDialog(false);
-    startNewGame(puzzle, game, data, newValues, finalValues);
-  };
+  setCounts();
+  /*
   const handleStartNo = () => {
     game.startTimer();
     game.updateStatus('running');
     game.setStartDialog(false);
   };
-
+  */
   const handleDifficultyYes = () => {
     game.updateStatus('waiting');
     game.setDifficultyDialog(false);
     game.updateLevel();
-    startNewGame(puzzle, game, data, newValues, finalValues);
+    //startNewGame(puzzle, game, data, newValues, finalValues);
   };
   const handleDifficultyNo = () => {
     game.startTimer();
@@ -219,11 +148,14 @@ function HexaduGame(){
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [puzzle.getEntered()]);
-  /** Game Clicks **/ 
   return (
     <>
       <StartDialog
-        isOpen={game.startIsOpen} onYes={handleStartYes} onNo={handleStartNo}
+        puzzle={puzzle}
+        game={game}
+        data={data}
+        newValues={newValues} 
+        finalValues={finalValues}
       />
       <DifficultyDialog 
         isOpen={game.difficultyIsOpen} onYes={handleDifficultyYes} onNo={handleDifficultyNo}

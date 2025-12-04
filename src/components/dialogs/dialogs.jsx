@@ -1,22 +1,34 @@
 import './dialogs.css';
+import {startNewGame} from '../../utils/newPuzzle.jsx';
 import {formatTime} from '../../utils/formatTime.jsx'
 import {useState} from 'react';
 
-export function StartDialog({ isOpen, onYes, onNo }) {
-  if (!isOpen) {
+export function StartDialog(props) {
+  const {puzzle, game, data, newValues, finalValues} = props;
+  if (!game.startIsOpen) {
     return null;
   }
+  const handleStartYes = () => {
+    game.updateStatus('waiting');
+    game.setStartDialog(false);
+    startNewGame(puzzle, game, data, newValues, finalValues);
+  };
+  const handleStartNo = () => {
+    game.startTimer();
+    game.updateStatus('running');
+    game.setStartDialog(false);
+  };
   return (
     <div className="dialog-container">
       <div className="dialog-small" onClick={(e) => e.stopPropagation()}>
           <p>Do you want to start a new game?</p>
           <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: '1rem'}} >
             <button className='dialog-button' 
-              onClick={onYes}>
+              onClick={() => handleStartYes()}>
               Yes
             </button>
             <button className='dialog-button' 
-              onClick={onNo}>
+              onClick={() => handleStartNo()}>
               No
             </button>
           </div>

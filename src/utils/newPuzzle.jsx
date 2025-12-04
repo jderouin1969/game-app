@@ -1,4 +1,10 @@
-export function makePuzzle(puzzle, game, data, newValues, finalValues) {
+export function startNewGame(puzzle, game, data, newValues, finalValues){
+  finalValues.fill('');
+  puzzle.resetEntered();
+  makePuzzle(puzzle, game, data, newValues, finalValues);
+};
+
+function makePuzzle(puzzle, game, data, newValues, finalValues) {
   puzzle.resetHint();
   randomStart(finalValues);
   fillPuzzle(finalValues, data);

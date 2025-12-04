@@ -1,4 +1,4 @@
-import {makePuzzle} from '../../utils/makePuzzle.jsx'
+import {startNewGame} from '../../utils/newPuzzle.jsx'
 
 function difficulty(puzzle, game){
   if (game.status == 'running' || game.status == 'paused' ){
@@ -24,12 +24,6 @@ function start(puzzle, game, data, newValues, finalValues){
   } else {
     startNewGame(puzzle, game, data, newValues, finalValues);
   }
-};
-
-export function startNewGame(puzzle, game, data, newValues, finalValues){
-  finalValues.fill('');
-  puzzle.resetEntered();
-  makePuzzle(puzzle, game, data, newValues, finalValues);
 };
 
 function check (puzzle, game){
