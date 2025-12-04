@@ -1,6 +1,5 @@
 import './dialogs.css';
-import {startNewGame} from '../../utils/newPuzzle.jsx';
-import {formatTime} from '../../utils/formatTime.jsx'
+import {startNewGame, formatTime} from '../../utils/utilsIndex.jsx';
 import {useState} from 'react';
 
 export function StartDialog(props) {
@@ -37,21 +36,33 @@ export function StartDialog(props) {
   );
 };
 
-export function DifficultyDialog({ isOpen, onYes, onNo }) {
-  if (!isOpen) {
+export function DifficultyDialog(props) {
+  const {puzzle, game, data, newValues, finalValues} = props;
+  if (!game.difficultyIsOpen) {
     return null;
   }
+  const handleDifficultyYes = () => {
+    game.updateStatus('waiting');
+    game.setDifficultyDialog(false);
+    game.updateLevel();
+    startNewGame(puzzle, game, data, newValues, finalValues);
+  };
+  const handleDifficultyNo = () => {
+    game.startTimer();
+    game.updateStatus('running');
+    game.setDifficultyDialog(false);
+  };
   return (
     <div className="dialog-container">
       <div className='dialog-small' onClick={(e) => e.stopPropagation()}>
           <p>End game and change difficulty?</p>
           <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: '1rem'}} >
             <button className='dialog-button' 
-              onClick={onYes}>
+              onClick={handleDifficultyYes}>
               Yes
             </button>
             <button className='dialog-button' 
-              onClick={onNo}>
+              onClick={handleDifficultyNo}>
               No
             </button>
           </div>
@@ -61,12 +72,29 @@ export function DifficultyDialog({ isOpen, onYes, onNo }) {
 };
 
 export function FinishedDialog(props) {
-  const {game, isOpen, onReset, onClose} = props;
-  if (!isOpen) {
+  const {game} = props;
+  if (!game.finishedIsOpen) {
     return null;
   }
+  const handleFinishedReset = () => {
+    switch (game.level) {
+      case 'Easy':
+        localStorage.setItem('easyCount', '0');
+        localStorage.setItem('easyTime', '0');
+        break;
+      case 'Medium':
+        localStorage.setItem('mediumCount', '0');
+        localStorage.setItem('mediumTime', '0');
+        break;
+      default:
+        localStorage.setItem('hardCount', '0');
+        localStorage.setItem('hardTime', '0');
+    }
+  };
+  const handleFinishedClose = () => {
+    game.setFinishedDialog(false);
+  };
   const timeString=formatTime(game.time);
-  const level=game.level;
   let count, avgTime, puzzles;
   switch (game.level) {
     case 'Easy':
@@ -86,7 +114,6 @@ export function FinishedDialog(props) {
   } else {
     puzzles='puzzle';
   }
-  
   return (
     <div className="dialog-container">
       <div className='dialog-small' onClick={(e) => e.stopPropagation()}>
@@ -94,18 +121,18 @@ export function FinishedDialog(props) {
           You finished in {timeString}!
         </p>
         <p className='finished-other'>
-          You have completed {count} {level} {puzzles}.
+          You have completed {count} {game.level} {puzzles}.
         </p>
         <p className='finished-other' style={{marginBottom: '.5rem'}}>
           Average time:  {avgTime}
         </p>
         <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: '1rem'}} >
           <button className='dialog-button' 
-            onClick={onReset}>
+            onClick={handleFinishedReset}>
             Reset
           </button>
           <button className='dialog-button' 
-            onClick={onClose}>
+            onClick={handleFinishedClose}>
             Close
           </button>
         </div>
@@ -115,13 +142,19 @@ export function FinishedDialog(props) {
 };
 
 export function DirectionsDialog(props) {
-  const {puzzle, data, isOpen, onClose} = props;
+  const {puzzle, game, data} = props;
   const [rule, setRule] = useState('none');
   const directionsValues = [2,1,5,4,7,6,3,6,1,4,2,3,5,4,6,2,7,5,
     1,3,1,4,2,5,4,2,7,6,1,4,3,6,7,7,5,1,2];
-  if (!isOpen) {
+  if (!game.directionsIsOpen) {
     return null;
   }
+  const handleDirectionsClose = () => {
+    if (game.status == 'set' || game.status == 'running'){
+      game.startTimer();
+    }
+    game.setDirectionsDialog(false);
+  };
   const handleHex = () => {
     setRule('hex');
   };
@@ -192,7 +225,7 @@ export function DirectionsDialog(props) {
         <div className='directions-button-container'>
           <button className='dialog-button'
             style={{margin: 'auto'}} 
-            onClick={onClose}>
+            onClick={handleDirectionsClose}>
             Close
           </button>
         </div>

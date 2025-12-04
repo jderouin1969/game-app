@@ -8,12 +8,12 @@
   position: fixed;    
   top: 0;
   left: 0;
-  background-color: var(--dialogBlur);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 5;   
 }
 .dialog-button{
-  width: calc(var(--text-dialog) * 4);
-  height: calc(var(--text-dialog) * 1.5);
+  width: 5rem;
+  height: 2rem;
 	border-radius: 100px;
   border: 0;
   background: var(--dialogButton);
@@ -43,7 +43,7 @@
   color: var(--fontDark);
   text-wrap: wrap;
   text-align: center;
-  margin-top: calc(var(--gameSize) * .35);
+  margin-top: 30vmin;
 }
 
 /* Finished Dialog */
@@ -116,6 +116,6 @@
 }
 .directions-button-container {
   background-color: var(--offWhite);
-  height: calc(var(--text-dialog) * 4); 
+  height: 5rem; 
   text-align: center; 
 }

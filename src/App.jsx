@@ -11,47 +11,7 @@ function HexaduGame() {
   const puzzle = usePuzzle();
   const newValues = Array(37).fill('');
   const finalValues = Array(37).fill('');
-
   setCounts();
-
-  const handleDifficultyYes = () => {
-    game.updateStatus('waiting');
-    game.setDifficultyDialog(false);
-    game.updateLevel();
-    //startNewGame(puzzle, game, data, newValues, finalValues);
-  };
-  const handleDifficultyNo = () => {
-    game.startTimer();
-    game.updateStatus('running');
-    game.setDifficultyDialog(false);
-  };
-
-  const handleFinishedReset = () => {
-    switch (game.level) {
-      case 'Easy':
-        localStorage.setItem('easyCount', '0');
-        localStorage.setItem('easyTime', '0');
-        break;
-      case 'Medium':
-        localStorage.setItem('mediumCount', '0');
-        localStorage.setItem('mediumTime', '0');
-        break;
-      default:
-        localStorage.setItem('hardCount', '0');
-        localStorage.setItem('hardTime', '0');
-    }
-  };
-  
-  const handleFinishedClose = () => {
-    game.setFinishedDialog(false);
-  };
-
-  const handleDirectionsClose = () => {
-    if (game.status == 'set' || game.status == 'running'){
-      game.startTimer();
-    }
-    game.setDirectionsDialog(false);
-  };
 
   /** Handle Game Clicks **/
   function handleControlClick(clickedControl){
@@ -151,20 +111,19 @@ function HexaduGame() {
         finalValues={finalValues}
       />
       <DifficultyDialog 
-        isOpen={game.difficultyIsOpen} onYes={handleDifficultyYes} onNo={handleDifficultyNo}
+        puzzle={puzzle}
+        game={game}
+        data={data}
+        newValues={newValues} 
+        finalValues={finalValues}
       />
       <DirectionsDialog
         puzzle={puzzle}
+        game={game}
         data={data}
-        isOpen={game.directionsIsOpen} 
-        onClose={handleDirectionsClose}
       />
       <FinishedDialog
-        puzzle={puzzle}
         game={game}
-        isOpen={game.finishedIsOpen} 
-        onReset={handleFinishedReset} 
-        onClose={handleFinishedClose}
       />
       <NavBar
         game={game}
