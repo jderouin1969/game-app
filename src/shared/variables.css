@@ -1,9 +1,11 @@
 :root {
   --body:#749dc8;
+  --hex:#0a61c9;
   --puzzleInner:#e5e4e2;
   --puzzleMiddle:#b0afae;
   --puzzleOutter:#a09f9e;
-  --hex:#0a61c9;
+  --stop: 0%;
+  --stopChange: 7.5%;
   --dialogButton:#315cf4;
   --dialogHover:#1434a4;
   --axisFill:#b8b8bf;
@@ -19,8 +21,6 @@
   --hint:#d99351;
   --offWhite: #fcf7f8;
   --gray: #808080;
-  --stop: 0%;
-  --stopChange: 7.5%;
   --text-control: 1.2rem;
   --text-dialog: 1.3rem;
   --text-directions: 1rem;
