@@ -1,8 +1,13 @@
 @import '.\shared\variables.css';
 
+@media (min-width: 551px), (min-height: 601px) {
+  :root {
+    --base-font: 18px;
+  }
+}
 @media (max-width: 550px), (max-height: 600px) {
   :root {
-    --base-font: 15px;
+    --base-font: 16px;
   }
 }
 @media (max-width: 500px), (max-height: 550px) {

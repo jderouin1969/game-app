@@ -58,10 +58,10 @@ function CircleText (props) {
 
 export const PuzzleBox = (props) => {
   const {puzzle, game, data, onCircleClick, onCheckClick} = props;
+  const [transition, setTransition] = useState(false);
   const handleCircleClick = (pos) => {
     onCircleClick(pos);
   };
-  const [transition, setTransition] = useState(false);
   const handleCheckClick = () => {
     if (game.status != 'waiting' && game.status != 'paused') { 
       onCheckClick();
@@ -71,36 +71,95 @@ export const PuzzleBox = (props) => {
       }, 225);
     }
   };
+  const handleCheckHover = () => {
+    if (game.status != 'waiting' && game.status != 'paused') { 
+      const checkButton = document.getElementById('checkText');
+      checkButton.setAttribute('fill', `${data.color.fontGreen}`);
+    } 
+  };
+  const handleCheckLeave = () => {
+    const checkButton = document.getElementById('checkText');
+    checkButton.setAttribute('fill', `${data.color.fontBlue}`); 
+  };
   const endTransition = () => {
     setTransition(false);
   };
   return (
-    <svg viewBox="0 0 600 600" style={{width: '100%', height: '100%' }}>
-      <g id='time-display' style={{pointerEvents: 'none'}}>
-        <rect className='svg-shadow' x='-40' y='20' 
-          width='105' height='45' fill={`${data.color.offWhite}`}  rx="15" ry="15" 
+    <svg viewBox="0 0 600 600" 
+      style={{width: '100%', height: '100%' }}>
+      <defs>
+        <filter id="combined-shadows" 
+          x="-50%" y="-50%" 
+          width="200%" height="200%">
+          <feDropShadow dx='2' dy='4' stdDeviation='5' 
+            floodColor="black" floodOpacity='0.7' result='dropShadow'/>
+          <feOffset dx='-2' dy='-5'/>
+          <feGaussianBlur stdDeviation='6' result='offset-blur'/>
+          <feComposite operator='out' in='SourceGraphic' in2='offset-blur' result='inverse'/>
+          <feFlood floodColor='black' floodOpacity='.99' result='color'/>
+          <feComposite operator='in' in='color' in2='inverse' result='shadow'/>
+          <feComposite operator='over' in='shadow' in2='SourceGraphic' result='blur'/>
+          <feMerge>
+            <feMergeNode in="dropShadow" />
+            <feMergeNode in="blur" />
+          </feMerge>
+        </filter>
+      </defs> 
+            <defs>
+        <filter id="combined-shadows-transition" 
+          x="-50%" y="-50%" 
+          width="200%" height="200%">
+          <feDropShadow dx='1' dy='1' stdDeviation='3' 
+            floodColor='black' floodOpacity='0.6' result='dropShadow'/>
+          <feOffset dx='0' dy='0'/>
+          <feGaussianBlur stdDeviation='6' result='offset-blur'/>
+          <feComposite operator='out' in='SourceGraphic' in2='offset-blur' result='inverse'/>
+          <feFlood floodColor='black' floodOpacity='.85' result='color'/>
+          <feComposite operator='in' in='color' in2='inverse' result='shadow'/>
+          <feComposite operator='over' in='shadow' in2='SourceGraphic' result='blur'/>
+          <feMerge>
+            <feMergeNode in="dropShadow"/>
+            <feMergeNode in="blur"/>
+          </feMerge>
+        </filter>
+      </defs> 
+      <g style={{pointerEvents: 'none'}}>
+        <rect className='filtered-rect' x='-40' y='20' 
+          width='105' height='45' 
+          fill={`${data.color.offWhite}`}
+          rx="20" ry="20" 
         />
-        <text x='24' y='45' fontFamily="Arial" fontSize="32" fill={`${data.color.fontDark}`}
-          textAnchor="middle" dominantBaseline="middle">{formatTime(game.time)}</text>
-      </g>
-      <g className={`checkButton ${transition ? 'transition' : ''}`}
-        style={{cursor: 'pointer'}}>
-        <rect className='checkBase'  
-          x='535' y='20' 
-          width='105' height='45' fill={`${data.color.offWhite}`}  
-          rx="15" ry="15"
-        />
-        <text className='checkText'
-          x='585' y='45' 
-          fontFamily="Arial" fontSize="26" fill={`${data.color.fontBlue}`}
+        <text
+          x='24' y='45' 
+          fontFamily="Arial" fontSize="32" 
+          fill={`${data.color.fontBlue}`}
           textAnchor="middle" dominantBaseline="middle">
+          {formatTime(game.time)}
+        </text>
+      </g>
+      <g style={{cursor: 'pointer'}}>
+        <rect className={`checkBase ${transition ? 'transition' : ''}`}
+          x='535' y='20' 
+          width='105' height='45'
+          fill={`${data.color.offWhite}`}
+          filter="url(#combined-shadows)"
+          rx="20" ry="20"
+        />
+        <text id='checkText'
+          x='585' y='45' 
+          fill={`${data.color.fontBlue}`}
+          fontFamily='Arial' fontSize='26' 
+          textAnchor='middle' dominantBaseline='middle'>
           Check
         </text>
         <rect id='check-button' 
           x='535' y='20' 
-          width='105' height='45' fill='transparent'  
+          width='105' height='45' 
+          fill='transparent'  
           rx="15" ry="15"
           onClick={() => handleCheckClick()}
+          onMouseEnter={() => handleCheckHover()}
+          onMouseLeave={() => handleCheckLeave()}
           onTransitionEnd={endTransition}
         />
       </g>
