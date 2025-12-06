@@ -5,7 +5,7 @@ export function StartDialog(props) {
   const {puzzle, game, data, newValues, finalValues} = props;
   if (!game.startIsOpen) {
     return null;
-  }
+  };
   const handleStartYes = () => {
     game.updateStatus('waiting');
     game.setStartDialog(false);
@@ -17,8 +17,8 @@ export function StartDialog(props) {
     game.setStartDialog(false);
   };
   return (
-    <div className="dialog-container">
-      <div className="dialog-small" onClick={(e) => e.stopPropagation()}>
+    <div className='dialog-container'>
+      <div className='dialog-small' onClick={(e) => e.stopPropagation()}>
           <p>Do you want to start a new game?</p>
           <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: '1rem'}} >
             <button className='dialog-button' 

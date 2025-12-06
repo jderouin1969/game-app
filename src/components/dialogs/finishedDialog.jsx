@@ -43,9 +43,9 @@ export function FinishedDialog(props) {
     puzzles='puzzles';
   } else {
     puzzles='puzzle';
-  }
+  };
   return (
-    <div className="dialog-container">
+    <div className='dialog-container'>
       <div className='dialog-small' onClick={(e) => e.stopPropagation()}>
         <p className='finished-time'>
           You finished in {timeString}!

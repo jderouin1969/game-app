@@ -49,7 +49,7 @@
   color: var(--fontBlue);
   text-shadow: .03rem .04rem .08rem rgba(255, 255, 255, 0.5);
   background-image: linear-gradient(176deg, white, var(--gray));
-  box-shadow: .05rem .2rem .25rem .15rem rgba(0, 0, 0, 0.35),
+  box-shadow: .05rem .2rem .25rem .1rem rgba(0, 0, 0, 0.35),
     inset .3rem .7rem .7rem -.6rem rgba(240, 240, 240, 0.8),
     inset .3rem .7rem 1rem -.65rem rgba(230, 230, 230, 0.7),
     inset -.35rem -.7rem .7rem -.6rem rgba(40, 40, 40, 0.5);
@@ -69,8 +69,8 @@
 }
 .control-top.transition {
   background-image: linear-gradient(176deg, white, var(--gray));
-  box-shadow: .05dvw .075dvw .2dvw .2dvw rgba(0, 0, 0, 0.25),
-    inset .15dvw .4dvw .4dvw -.1dvw rgba(40, 40, 40, 0.4),
-    inset -.5dvw -.8dvw .4dvw -.7dvw rgba(40, 40, 40, 0.6);
+  box-shadow: .1rem .075rem .2rem .1rem rgba(0, 255, 0, 0.25),
+    inset .1rem .4rem .4rem -.05rem rgba(40, 40, 40, 0.4),
+    inset -.35rem -.9rem .3rem -.6rem rgba(40, 40, 40, 0.6);
   transform: scale(.98, .95);
 }

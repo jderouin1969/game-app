@@ -173,12 +173,12 @@ function CircleText (props) {
     <>
       <circle key={`c${id}`} cx={data.position.centerX + (cx * data.position.smallStepX)} 
         cy={data.position.centerY + (cy * data.position.smallStepY)} r={data.position.circleRadius} 
-        fill={fillColor} stroke={strokeColor} strokeWidth="3" 
+        fill={fillColor} stroke={strokeColor} strokeWidth='3' 
         />
       <text key={`t${id}`} x={data.position.centerX + (cx * data.position.smallStepX)} 
-        y={data.position.centerY + (cy * data.position.smallStepY) + 4} textAnchor="middle" 
-        alignmentBaseline="middle" style={{ pointerEvents: 'none' }} fill={fontColor}
-        fontFamily="Helvetica" fontSize="1.5em" fontWeight="500">
+        y={data.position.centerY + (cy * data.position.smallStepY) + 4} textAnchor='middle' 
+        alignmentBaseline='middle' style={{ pointerEvents: 'none' }} fill={fontColor}
+        fontFamily='Helvetica' fontSize='1.5em' fontWeight='500'>
         {values[id]}
       </text>
       <ErrorEllipse rule={rule}/>
@@ -189,7 +189,7 @@ function CircleText (props) {
 const DirectionsPuzzleBox = (props) => {
   const {rule, data, values} = props;
   return (
-    <svg viewBox="0 0 600 600" style={{width: '100%', height: '90%'}}>
+    <svg viewBox='0 0 600 600' style={{width: '100%', height: '90%'}}>
       {data.hexagonSmall.map((num) => (
         <polygon 
           key={`h${num.id}`} 
