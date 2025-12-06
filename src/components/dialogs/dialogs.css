@@ -80,7 +80,7 @@
   margin-bottom: 0;
 }
 .directions-clickTip {
-  color: var(--fontGreen);
+  color: var(--fontBlue);
   background-color: var(--offWhite);
   height: var(--text-dialog); 
   text-align: center;

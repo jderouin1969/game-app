@@ -58,9 +58,8 @@ function ControlButton (props){
           disabled={game.status == 'finished' ? true : disable}
           data={data}
           onClick={handleClick}
-          onTransitionEnd={endTransition}
-          >
-          {buttonLabel}
+          onTransitionEnd={endTransition}>
+            {buttonLabel}
         </button>  
       </div>
     </>
