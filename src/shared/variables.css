@@ -1,0 +1,32 @@
+:root {
+  --body:#749dc8;
+  --puzzleInner:#e5e4e2;
+  --puzzleMiddle:#b0afae;
+  --puzzleOutter:#a09f9e;
+  --stop: 0%;
+  --stopChange: 7.5%;
+  --hex:#0a61c9;
+  --dialogButton:#315cf4;
+  --dialogHover:#1434a4;
+  --axisFill:#b8b8bf;
+  --otherFill:#d7d7db;
+  --centerBorder:#0f1042;
+  --axisBorder:#818181;
+  --otherBorder:#b2b2b2;
+  --cursor:#758595;
+  --fontLight:#616170;
+  --fontDark:#0f1042;
+  --fontGreen: #0a8a64;
+  --fontBlue: #0000ff;
+  --hint:#d99351;
+  --offWhite: #fcf7f8;
+  --gray: #808080;
+  --text-control: 1.4rem;
+  --text-dialog: 1.3rem;
+  --text-directions: 1rem;
+  --text-numbers: 2.4rem;
+  --text-buttons: 1rem;
+  --text-message: 1.7rem;
+  --gameSize: min(93vh, 99vw);
+  --base-font: 20px;
+}

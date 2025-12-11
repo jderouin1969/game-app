@@ -1,0 +1,121 @@
+@import '..\..\shared\variables.css';
+
+.dialog-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%; 
+  position: fixed;    
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;   
+}
+.dialog-button{
+  width: 5rem;
+  height: 2rem;
+	border-radius: 100px;
+  border: 0;
+  background: var(--dialogButton);
+	font-size: var(--text-buttons);
+	text-align: center;
+  color: var(--offWhite);
+}
+.dialog-button:hover {
+	background: var(--dialogHover);
+  border: 0;
+}
+.dialog-button:active {
+  position: relative; 
+  top: .2rem;
+  background: var(--dialogHover);
+}
+
+/* Dialog Small */
+.dialog-small {
+  z-index: 5;
+  position: fixed;
+  width: 28rem;
+  background: var(--offWhite);
+  border-radius: 1rem;
+  border: none;
+  font-size: var(--text-dialog);
+  color: var(--fontDark);
+  text-wrap: wrap;
+  text-align: center;
+  margin-top: 30vmin;
+}
+
+/* Finished Dialog */
+.finished-time {
+  font-size: var(--text-numbers);
+  margin-bottom: 0; 
+  color: var(--fontBlue);
+}
+.finished-other {
+  font-size: var(--text-dialog);
+  margin-top: .5rem;
+  margin-bottom: 0; 
+  color: var(--fontDark);
+}
+
+/* Direction Dialog */
+.dialog-directions {
+  z-index: 5;
+  background: var(--offWhite);
+  border-radius: 1rem;
+  border: none;
+  margin-top: 3rem;
+  width: var(--gameSize);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  color: var(--fontDark);
+}
+.directions-puzzle-box {
+  border-radius: 1rem;
+  height: calc(var(--gameSize) * .45);
+  margin: auto;
+  margin-bottom: 0;
+}
+.directions-clickTip {
+  color: var(--fontGreen);
+  background-color: var(--offWhite);
+  height: var(--text-dialog); 
+  text-align: center;
+  margin-top: -.3rem;
+  margin-bottom: -.6rem;
+  font-size: var(--text-dialog);     
+}
+.directions-list {
+  background-color: var(--offWhite);
+  font-size: var(--text-dialog);
+  border-radius: 1rem;
+  margin: 0;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+.example-button {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+  color: var(--fontBlue);
+  font-size: var(--text-dialog);
+  text-shadow: .03rem .04rem .08rem rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(176deg, #ffffff, var(--gray));
+  box-shadow: .05rem .2rem .25rem .15rem rgba(0, 0, 0, 0.35),
+    inset .3rem .7rem .7rem -.6rem rgba(240, 240, 240, 0.8),
+    inset .3rem .7rem 1rem -.65rem rgba(230, 230, 230, 0.7),
+    inset -.35rem -.7rem .7rem -.6rem rgba(40, 40, 40, 0.5);
+}
+.directions-button-container {
+  background-color: var(--offWhite);
+  height: 5rem; 
+  text-align: center; 
+}

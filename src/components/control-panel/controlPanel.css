@@ -1,0 +1,80 @@
+@import '..\..\shared\variables.css';
+
+.control-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: var(--gameSize); 
+  height: 100%;
+  background-color: transparent;
+}
+.control {
+  position: relative;
+  align-items: center;
+  font-size: var(--text-control);
+  height: 2rem;
+}
+.control-small {
+  width: 5rem;
+}
+.control-medium {
+  width: 6rem;
+}
+.control-large {
+  width: 7rem;
+}
+.control-xl {
+  width: 8rem;
+}
+.control-base {
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  border: none;
+  background-image: linear-gradient(178deg, #8d8d8d, #676767);
+  filter: blur(.2rem);
+}
+.control-top {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  color: var(--fontBlue);
+  text-shadow: .03rem .04rem .08rem rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(176deg, white, var(--gray));
+  box-shadow: .04rem .2rem .25rem .1rem rgba(0, 0, 0, 0.35),
+    inset .15rem .75rem .8rem -.5rem rgba(255, 255, 255, 0.9),
+    inset .2rem 1rem 1rem -.65rem rgba(230, 230, 230, 0.7),
+    inset -.15rem -.75rem .4rem -.5rem rgba(40, 40, 40, 0.7);
+  transition: background-image 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  will-change: transform;
+}
+.control-top:disabled {
+  color: var(--fontLight);
+  cursor: default;
+}
+.control-top:focus {
+  outline: none;
+  border: none;
+}
+.control-top:not(:disabled):hover {
+  color: var(--fontGreen);
+  border: none;
+}
+.control-top.transition {
+  background-image: linear-gradient(176deg, white, var(--gray));
+  box-shadow: .0rem .0rem .2rem .05rem rgba(0, 0, 0, 0.1),
+    inset .14rem .75rem .7rem -.6rem rgba(40, 40, 40, 0.75),
+    inset -.15rem -.75rem .4rem -.5rem rgba(40, 40, 40, 0.7);
+  transform: scale(.98, .95);
+}
