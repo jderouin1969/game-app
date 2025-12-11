@@ -1,0 +1,104 @@
+@import '.\shared\variables.css';
+
+@media (min-width: 751px), (min-height: 801px) {
+  :root {
+    --base-font: 19px;
+  }
+}
+@media (max-width: 750px), (max-height: 800px) {
+  :root {
+    --base-font: 18px;
+  }
+}
+@media (max-width: 675px), (max-height: 725px) {
+  :root {
+    --base-font: 16px;
+  }
+}
+@media (max-width: 600px), (max-height: 650px) {
+  :root {
+    --base-font: 15px;
+  }
+}
+@media (max-width: 525px), (max-height: 575px) {
+  :root {
+    --base-font: 14px;
+  }
+}
+@media (max-width: 450px), (max-height: 500px) {
+  :root {
+    --base-font: 13px;
+  }
+}
+@media (max-width: 425px), (max-height: 475px) {
+  :root {
+    --base-font: 12px;
+  }
+}
+@media (max-width: 395px), (max-height: 445px) {
+  :root {
+    --base-font: 11px;
+  }
+}
+@media (max-width: 370px), (max-height: 420px) {
+  :root {
+    --base-font: 10px;
+  }
+}
+@media (max-width: 350px), (max-height: 400px) {
+  :root {
+    --base-font: 9px;
+  }
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+html {
+  height: 100%;
+  background-color: #ffffff;
+  font-size: var(--base-font);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-color: var(--body, #ffffff);
+  font-family: Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Game Display */
+.game-container {
+  position: relative;
+  background-color: var(--body);
+  display: grid;
+  place-items: center;
+  width: var(--gameSize);
+  height: var(--gameSize);
+  margin-top: calc(var(--gameSize) / 15);
+  grid-template-columns: var(--gameSize);
+  grid-template-rows: calc(var(--gameSize) * .09) 
+    calc(var(--gameSize) * .8) calc(var(--gameSize) * .11);
+}
+
+.cursor {
+  animation: fade-in .2s ease-out, blink .6s ease-in-out .2s infinite alternate;
+}
+
+@keyframes fade-in {
+  from {fill: var(--fillColor);}
+  to {fill: var(--cursor);}
+}
+@keyframes blink {
+  from {fill: var(--cursor);}
+  to {fill: var(--offWhite);}
+}

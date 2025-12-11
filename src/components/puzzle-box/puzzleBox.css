@@ -1,0 +1,71 @@
+@import '..\..\shared\variables.css';
+
+.puzzle-box {
+  background: radial-gradient(circle at center, var(--puzzleInner), var(--puzzleOutter));
+  border-radius: 1rem;
+  width: 97.5%;
+  height: 100%;
+  text-align: center;
+  box-shadow: .06rem .3rem .25rem .12rem rgba(0, 0, 0, 0.35),
+    inset .15rem .75rem .8rem -.5rem rgba(240, 240, 240, 0.65),
+    inset .2rem 1rem 1rem -.65rem rgba(230, 230, 230, 0.7),
+    inset -.12rem -.6rem .6rem -.5rem rgba(40, 40, 40, 0.55);
+}
+.puzzle-box-animation {
+  width: 97.5%;
+  height: 100%;
+  background: radial-gradient(circle at center, 
+    var(--puzzleInner) 0%,
+    var(--puzzleOutter) var(--stop),
+    var(--puzzleMiddle) calc(var(--stop) + var(--stopChange)),
+    var(--puzzleOutter) calc(var(--stop) + (2 * var(--stopChange))),
+    var(--puzzleMiddle) calc(var(--stop) + (3 * var(--stopChange))),
+    var(--puzzleOutter) calc(var(--stop) + (4 * var(--stopChange))),
+    var(--puzzleMiddle) calc(var(--stop) + (5 * var(--stopChange))),
+    var(--puzzleOutter));
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: .06rem .3rem .25rem .12rem rgba(0, 0, 0, 0.35),
+    inset .15rem .75rem .8rem -.5rem rgba(240, 240, 240, 0.65),
+    inset .2rem 1rem 1rem -.65rem rgba(230, 230, 230, 0.7),
+    inset -.12rem -.6rem .6rem -.5rem rgba(40, 40, 40, 0.55);
+}
+.time-display {
+  fill: #dfdfdf;
+  shape-rendering: crispEdges;
+  filter: url(#combined-shadows);
+}
+.time-display-text {
+  font-family: Arial, sans-serif;
+  text-shadow: .02rem .04rem .04rem rgba(200, 200, 200, 0.8);
+  fill: var(--fontBlue);
+}
+.check-base {
+  fill: var(--offWhite);
+  shape-rendering: crispEdges;
+  filter: url(#combined-shadows);
+  transition: transform 0.2s ease-in-out, filter 0.2 ease-in-out;
+}
+.check-text {
+  font-family: Arial, sans-serif;
+  text-shadow: .02rem .04rem .05rem rgba(255, 255, 255, 0.9);
+  fill: var(--fontBlue);
+}
+.check-text-hover {
+  font-family: Arial, sans-serif;
+  text-shadow: .02rem .04rem .05rem rgba(255, 255, 255, 0.9);
+  fill: var(--fontGreen);
+}
+.check-click {
+  fill: transparent;
+}
+.check-base.transition {
+  transform-origin: center;
+  transform-box: fill-box;
+  transform: scale(.96,.93);
+  filter: url(#combined-shadows-transition);
+}
+.check-text.transition {
+  text-anchor: middle; 
+  dominant-baseline: middle;
+}
