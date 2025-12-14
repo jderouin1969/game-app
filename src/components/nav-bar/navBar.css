@@ -4,21 +4,86 @@
   position: fixed;
   top: 0;
   left: 0;
-  margin-bottom: 1rem; 
   width: 100%;
-  height: calc(var(--text-message) * 1.5);
+  height: var(--nav-height);
   z-index: 99;
   background-image: radial-gradient(circle at center, var(--offWhite), var(--gray));
   overflow: hidden;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   box-shadow: 0 .3rem .5rem .2rem rgba(0, 0, 0, 0.35),
     inset -.5rem -.8rem .8rem -.7rem rgba(40, 40, 40, 0.55);
 }
-
+.logo-box {
+  flex: 1;
+  justify-content: flex-start;
+  margin-left: 1rem;
+  margin-top: calc(var(--nav-height)*.075);
+}
+.logo-image {
+  width: calc(var(--nav-height)*.9);
+  height: calc(var(--nav-height)*.9);
+  align-self: bottom;
+}
 .message-box {
+  flex: 0 0 auto;
   text-align: center;
   background-color: transparent;
   color: var(--fontDark);
-  font-family: Arial; font-size: var(--text-message);
+  font-family: Arial; font-size: calc(var(--nav-height)*.8);
+}
+.button-box {
+  flex: 1;
+  display: flex;
+  width: calc(var(--nav-height)*.8);
+  height: calc(var(--nav-height)*.8);
+  justify-content: flex-end;
+  margin-right: 2rem;
+  font-size: var(--text-message);
+  background-color: transparent;
+}
+
+.directions-base {
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  width: calc(var(--nav-height)*.8);
+  height: calc(var(--nav-height)*.8);
+  border-radius: 100px;
+  border: none;
+  background-image: linear-gradient(178deg, #8d8d8d, #676767);
+  filter: blur(.2rem);
+}
+.directions-top {
+  z-index: 2;
+  position: absolute;
+  width: calc(var(--nav-height)*.8);
+  height: calc(var(--nav-height)*.8);
+  border-radius: 100px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  color: var(--fontBlue);
+  text-shadow: .03rem .04rem .08rem rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(176deg, white, var(--gray));
+  box-shadow: .04rem .2rem .25rem .1rem rgba(0, 0, 0, 0.2),
+    inset .15rem .75rem .8rem -.5rem rgba(255, 255, 255, 0.9),
+    inset .2rem 1rem 1rem -.65rem rgba(230, 230, 230, 0.7),
+    inset -.15rem -.75rem .4rem -.5rem rgba(40, 40, 40, 0.5);
+  transition: background-image 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  will-change: transform;
+}
+.directions-top:focus {
+  outline: none;
+  border: none;
+}
+.directions-top.transition {
+  background-image: linear-gradient(176deg, white, var(--gray));
+  box-shadow: .0rem .0rem .2rem .05rem rgba(0, 0, 0, 0.1),
+    inset .14rem .75rem .7rem -.6rem rgba(40, 40, 40, 0.75),
+    inset -.15rem -.75rem .4rem -.5rem rgba(40, 40, 40, 0.5);
+  transform: scale(.98, .95);
 }

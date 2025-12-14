@@ -13,6 +13,22 @@ function HexaduGame() {
   const puzzle = usePuzzle();
   const newValues = Array(37).fill('');
   const finalValues = Array(37).fill('');
+
+  (function() {updateDimensions();})();
+  window.addEventListener('resize', () => {updateDimensions()});
+
+  function updateDimensions() {
+    const width=window.innerWidth;
+    const height=window.innerHeight;
+    if (width > (height*.95)) {
+      document.documentElement.style.setProperty('--gameSize', '93dvh');
+      document.documentElement.style.setProperty('--nav-height', '6dvh');
+    } else {
+      document.documentElement.style.setProperty('--gameSize', '99dvw');
+      document.documentElement.style.setProperty('--nav-height', '6.5dvw');
+    }
+  };
+
   setCounts();
   useEffect(() => {
     const handleKeyDown = (event) => {

@@ -46,7 +46,7 @@ export const data = {
       centerBorder:'#0f1042', axisBorder:'#818181', otherBorder:'#b2b2b2',
       fontLight:'#616170', fontDark:'#0f1042',fontGreen:'#0a8a64',
       fontBlue:'#0000ff', offWhite:'#fcf7f8', hint: '#d99351'},
-  position: {centerX: center, centerY: center, hexRadius: hexR, circleRadius: hexR/2, 
+  position: {centerX: center, centerY: center, hexRadius: hexR, circleRadius: 32, 
     stepX: hexR * Math.sqrt(3)/2, stepY: hexR * 1.5, 
     smallStepX: smallR * Math.sqrt(3)/2, smallStepY: smallR * 1.5},
   hexagon: [

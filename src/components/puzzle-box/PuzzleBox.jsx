@@ -46,7 +46,7 @@ function CircleText (props) {
         />
       <text key={`t${id}`} x={data.position.centerX + (cx * data.position.stepX)} 
         y={data.position.centerY + (cy * data.position.stepY) + 4} textAnchor='middle' 
-        alignmentBaseline='middle' fontFamily='Helvetica' fontSize='2.5em' fontWeight='500'
+        alignmentBaseline='middle' fontFamily='Helvetica' fontSize='44' fontWeight='500'
         style={{textShadow: '1px 1px 2px rgba(255, 255, 255, 0.5)', 
           pointerEvents: 'none' }}
         fill={fontColor}
