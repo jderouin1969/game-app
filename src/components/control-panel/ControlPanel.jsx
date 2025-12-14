@@ -94,11 +94,6 @@ export function ControlPanel (props){
         disable={game.status == 'waiting' ? true : false} 
         onControlClick={handleControlClick} 
         buttonLabel={<PauseLabel game={game} />} />
-      <ControlButton id={'directions'} 
-        game={game} data={data} size={'xl'} 
-        disable={false} 
-        onControlClick={handleControlClick} 
-        buttonLabel={'Directions'}/>
     </>
   );    
 };

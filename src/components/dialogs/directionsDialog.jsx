@@ -178,7 +178,7 @@ function CircleText (props) {
       <text key={`t${id}`} x={data.position.centerX + (cx * data.position.smallStepX)} 
         y={data.position.centerY + (cy * data.position.smallStepY) + 4} textAnchor='middle' 
         alignmentBaseline='middle' style={{ pointerEvents: 'none' }} fill={fontColor}
-        fontFamily='Helvetica' fontSize='1.5em' fontWeight='500'>
+        fontFamily='Helvetica' fontSize='30' fontWeight='500'>
         {values[id]}
       </text>
       <ErrorEllipse rule={rule}/>

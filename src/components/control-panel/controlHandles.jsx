@@ -162,15 +162,9 @@ export function pause (game){
   }
 };
 
-export function directions(game){
-  game.stopTimer();
-  game.setDirectionsDialog(true);
-};
-
 export default {
   difficulty,
   start,
   hint,
-  pause,
-  directions
+  pause
 };

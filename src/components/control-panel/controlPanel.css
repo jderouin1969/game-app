@@ -13,19 +13,19 @@
   position: relative;
   align-items: center;
   font-size: var(--text-control);
-  height: 2rem;
+  height: 2.5rem;
 }
 .control-small {
-  width: 5rem;
-}
-.control-medium {
   width: 6rem;
 }
-.control-large {
+.control-medium {
   width: 7rem;
 }
-.control-xl {
+.control-large {
   width: 8rem;
+}
+.control-xl {
+  width: 9rem;
 }
 .control-base {
   z-index: 1;
