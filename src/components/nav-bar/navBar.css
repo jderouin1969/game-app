@@ -18,7 +18,7 @@
 .logo-box {
   flex: 1;
   justify-content: flex-start;
-  margin-left: 1rem;
+  margin-left: 1dvw;
   margin-top: calc(var(--nav-height)*.075);
 }
 .logo-image {
@@ -39,7 +39,7 @@
   width: calc(var(--nav-height)*.8);
   height: calc(var(--nav-height)*.8);
   justify-content: flex-end;
-  margin-right: 2rem;
+  margin-right: 1dvw;
   font-size: var(--text-message);
   background-color: transparent;
 }

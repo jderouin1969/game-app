@@ -1,7 +1,7 @@
 @import '..\..\shared\variables.css';
 
 .puzzle-box {
-  background: radial-gradient(circle at center, var(--puzzleInner), var(--puzzleOutter));
+  background: radial-gradient(circle at center, var(--puzzle-inner), var(--puzzle-outter));
   border-radius: 1rem;
   width: 97.5%;
   height: 100%;
@@ -15,14 +15,14 @@
   width: 97.5%;
   height: 100%;
   background: radial-gradient(circle at center, 
-    var(--puzzleInner) 0%,
-    var(--puzzleOutter) var(--stop),
-    var(--puzzleMiddle) calc(var(--stop) + var(--stopChange)),
-    var(--puzzleOutter) calc(var(--stop) + (2 * var(--stopChange))),
-    var(--puzzleMiddle) calc(var(--stop) + (3 * var(--stopChange))),
-    var(--puzzleOutter) calc(var(--stop) + (4 * var(--stopChange))),
-    var(--puzzleMiddle) calc(var(--stop) + (5 * var(--stopChange))),
-    var(--puzzleOutter));
+    var(--puzzle-inner) 0%,
+    var(--puzzle-outter) var(--stop),
+    var(--puzzle-middle) calc(var(--stop) + var(--stop-change)),
+    var(--puzzle-outter) calc(var(--stop) + (2 * var(--stop-change))),
+    var(--puzzle-middle) calc(var(--stop) + (3 * var(--stop-change))),
+    var(--puzzle-outter) calc(var(--stop) + (4 * var(--stop-change))),
+    var(--puzzle-middle) calc(var(--stop) + (5 * var(--stop-change))),
+    var(--puzzle-outter));
   border-radius: 1rem;
   text-align: center;
   box-shadow: .06rem .3rem .25rem .12rem rgba(0, 0, 0, 0.35),

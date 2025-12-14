@@ -1,13 +1,13 @@
 :root {
   --body:#749dc8;
-  --puzzleInner:#e5e4e2;
-  --puzzleMiddle:#b0afae;
-  --puzzleOutter:#a09f9e;
+  --puzzle-inner:#e5e4e2;
+  --puzzle-middle:#b0afae;
+  --puzzle-outter:#a09f9e;
   --stop: 0%;
-  --stopChange: 7.5%;
+  --stop-change: 7.5%;
   --hex:#0a61c9;
-  --dialogButton:#315cf4;
-  --dialogHover:#1434a4;
+  --dialog-button:#315cf4;
+  --dialog-hover:#1434a4;
   --axisFill:#b8b8bf;
   --otherFill:#d7d7db;
   --centerBorder:#0f1042;

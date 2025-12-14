@@ -47,13 +47,13 @@ export function FinishedDialog(props) {
   return (
     <div className='dialog-container'>
       <div className='dialog-small' onClick={(e) => e.stopPropagation()}>
-        <p className='finished-time'>
+        <p className='finished-p1'>
           You finished in {timeString}!
         </p>
-        <p className='finished-other'>
+        <p className='finished-p2-p3'>
           You have completed {count} {game.level} {puzzles}.
         </p>
-        <p className='finished-other' style={{marginBottom: '.5rem'}}>
+        <p className='finished-p2-p3' style={{marginBottom: '.5rem'}}>
           Average time:  {avgTime}
         </p>
         <div style={{display: 'flex', justifyContent: 'space-evenly', marginBottom: '1rem'}} >

@@ -16,19 +16,19 @@
   height: 2rem;
 	border-radius: 100px;
   border: 0;
-  background: var(--dialogButton);
+  background: var(--dialog-button);
 	font-size: var(--text-buttons);
 	text-align: center;
   color: var(--offWhite);
 }
 .dialog-button:hover {
-	background: var(--dialogHover);
+	background: var(--dialog-hover);
   border: 0;
 }
 .dialog-button:active {
   position: relative; 
   top: .2rem;
-  background: var(--dialogHover);
+  background: var(--dialog-hover);
 }
 
 /* Dialog Small */
@@ -47,12 +47,12 @@
 }
 
 /* Finished Dialog */
-.finished-time {
+.finished-p1 {
   font-size: var(--text-numbers);
   margin-bottom: 0; 
   color: var(--fontBlue);
 }
-.finished-other {
+.finished-p2-p3 {
   font-size: var(--text-dialog);
   margin-top: .5rem;
   margin-bottom: 0; 
@@ -79,7 +79,7 @@
   margin: auto;
   margin-bottom: 0;
 }
-.directions-clickTip {
+.directions-tip {
   color: var(--fontGreen);
   background-color: var(--offWhite);
   height: var(--text-dialog); 

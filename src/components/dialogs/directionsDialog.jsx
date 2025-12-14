@@ -31,7 +31,7 @@ export function DirectionsDialog(props) {
     setRule('none');
   };
   return (
-    <div className="dialog-container">    
+    <div className='dialog-container'>    
       <div className='dialog-directions' onClick={(e) => e.stopPropagation()}>
         <DirectionsPuzzleBox className='directions-puzzle-box' 
           rule={rule} 
@@ -39,7 +39,7 @@ export function DirectionsDialog(props) {
           data={data}
           values={directionsValues}
         />
-        <p className='directions-clickTip' >
+        <p className='directions-tip' >
         Click on a rule to see example.
         </p>
         <ul className='directions-hexadu'>
