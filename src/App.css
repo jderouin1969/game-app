@@ -86,8 +86,8 @@ body {
   height: var(--gameSize);
   margin-top: calc(var(--gameSize) / 15);
   grid-template-columns: var(--gameSize);
-  grid-template-rows: calc(var(--gameSize) * .09) 
-    calc(var(--gameSize) * .8) calc(var(--gameSize) * .11);
+  grid-template-rows: calc(var(--gameSize) * var(--c-panel-height)) 
+    calc(var(--gameSize) * var(--puzzle-height)) calc(var(--gameSize) * var(--n-panel-height));
 }
 
 .cursor {

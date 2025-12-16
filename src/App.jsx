@@ -1,5 +1,5 @@
 import {data} from './shared/data.jsx'
-import {usePuzzle, useGame, setCounts} from './utils/utilsIndex.jsx';
+import {usePuzzle, useGame, setCounts, updateDimensions} from './utils/utilsIndex.jsx';
 import {StartDialog, DifficultyDialog, FinishedDialog, DirectionsDialog} from './components/componentIndex.jsx';
 import {control} from './components/componentIndex.jsx';
 import {handleControlClick, handleCircleClick, handleCheckClick, handleNumberClick} from './components/componentIndex.jsx';
@@ -16,18 +16,6 @@ function HexaduGame() {
 
   (function() {updateDimensions();})();
   window.addEventListener('resize', () => {updateDimensions()});
-
-  function updateDimensions() {
-    const width=window.innerWidth;
-    const height=window.innerHeight;
-    if (width > (height*.95)) {
-      document.documentElement.style.setProperty('--gameSize', '93dvh');
-      document.documentElement.style.setProperty('--nav-height', '6dvh');
-    } else {
-      document.documentElement.style.setProperty('--gameSize', '99dvw');
-      document.documentElement.style.setProperty('--nav-height', '6.5dvw');
-    }
-  };
 
   setCounts();
   useEffect(() => {

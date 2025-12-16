@@ -34,24 +34,21 @@ function ControlButton (props){
   const endTransition = () => {
     setTransition(false);
   };
-  let className;
+  let controlSize;
   switch (size) {
     case 'small':
-      className ='control control-small';
+      controlSize ='control control-small';
       break;
     case 'medium':
-      className ='control control-medium';
+      controlSize ='control control-medium';
       break;
     case 'large':
-      className ='control control-large';
-      break;
-    case 'xl':
-      className ='control control-xl';
+      controlSize ='control control-large';
       break;
   }
   return (
     <>
-      <div className={className}>
+      <div className={controlSize}>
         <button className='control-base'></button>
         <button 
           className={`control-top ${transition ? 'transition' : ''}`}
@@ -84,16 +81,16 @@ export function ControlPanel (props){
         disable={false} 
         onControlClick={handleControlClick} 
         buttonLabel={'Start'}/>
-      <ControlButton id={'hint'} 
-        game={game} data={data} size={'small'} 
-        disable={false} 
-        onControlClick={handleControlClick} 
-        buttonLabel={'Hint'}/>
       <ControlButton id={'pause'} 
         game={game} data={data} size={'large'} 
         disable={game.status == 'waiting' ? true : false} 
         onControlClick={handleControlClick} 
         buttonLabel={<PauseLabel game={game} />} />
+      <ControlButton id={'hint'} 
+        game={game} data={data} size={'small'} 
+        disable={false} 
+        onControlClick={handleControlClick} 
+        buttonLabel={'Hint'}/>
     </>
   );    
 };
