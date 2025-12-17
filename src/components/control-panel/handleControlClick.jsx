@@ -19,4 +19,3 @@ export function handleControlClick(clickedControl, game, puzzle, data, control, 
       break;
   }
 };
-
